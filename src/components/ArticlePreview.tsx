@@ -1,34 +1,74 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
 
-const ArticlePreview = () => {
+interface NewsData {
+  category: string;
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  shortdescription?: string;
+  description?: string;
+}
+
+interface Props {
+  data: NewsData;
+}
+
+const ArticlePreview: React.FC<Props> = ({ data }) => {
   return (
-    <div className="flex flex-col md:flex-row items-start gap-6 px-4 py-6 max-w-5xl mx-auto">
-      {/* Left Text Section */}
-      <div className="md:w-1/2">
-        <p className="text-red-600 font-semibold text-sm">
-          Santé <span className="text-black">• Pharmaceutique</span>
-        </p>
-        <h1 className="text-2xl md:text-3xl font-bold underline leading-tight mt-2">
-          L’Etat chouchoute un labo au détriment de
-          <br className="hidden sm:block" />
-          l’Etablissement français du sang
-        </h1>
-        <p className="mt-4 text-[17px] leading-relaxed">
-          Alors que l&apos;EFS connaît une situation financière
-          « très préoccupante », l’Assurance maladie soigne le
-          Laboratoire français du fractionnement et des biotechnologies, qui a reçu 1,7 milliard d&apos;euros de fonds publics. Garrot fiasco ?
+    <div className="bg-white p-3 sm:p-4 border-b border-gray-200">
+      {/* Category */}
+      <div className="flex items-center mb-2">
+        <span className="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wide">
+          {data.category}
+        </span>
+        <span className="ml-2 text-red-600">•</span>
+      </div>
+
+      {/* Mobile Layout (md and below) */}
+      <div className="md:hidden flex gap-3 sm:gap-4 mb-2">
+        <div className="flex-1 min-w-0 pr-2">
+          <p className="text-lg sm:text-xl font-bold leading-tight text-gray-900 hover:underline cursor-pointer">
+            {data.title}
+          </p>
+        </div>
+        <div className="flex-shrink-0 w-28 sm:w-36 relative">
+          <Image
+            src={data.image}
+            alt={data.title}
+            width={144}
+            height={96}
+            className="w-full h-20 sm:h-24 object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Desktop Layout (md and above) */}
+      <div className="hidden md:block relative">
+        {/* Image floats to the right */}
+        <div className="float-right w-[280px] h-[196px] ml-4 mb-2">
+          <Image
+            src={data.image}
+            alt={data.title}
+            width={280}
+            height={196}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Title for desktop */}
+        <p className="text-xl lg:text-2xl font-bold hover:underline leading-snug text-gray-900 mb-2">
+          {data.title}
         </p>
       </div>
 
-      {/* Right Cartoon Image */}
-      <div className="md:w-1/2 flex justify-center md:justify-end">
-        {/* <Image
-          src={cartoon}
-          alt="Cartoon about EFS"
-          className="w-full max-w-md h-auto"
-        /> */}
-      </div>
+      <p className="text-xs sm:text-sm md:text-base text-black text-justify mb-2 md:mb-0">
+        {data.shortdescription}
+      </p>
+
+      {/* Clear float on desktop */}
+      <div className="hidden md:block clear-both"></div>
     </div>
   );
 };

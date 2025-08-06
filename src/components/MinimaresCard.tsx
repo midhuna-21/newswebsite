@@ -1,19 +1,30 @@
 import React from 'react';
 
-export default function MinimaresCard() {
+interface NewsData {
+  category: string;
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  shortdescription?: string;
+  description?: string;
+}
+
+interface Props {
+  data: NewsData;
+}
+
+const MinimaresCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className="max-w-md mx-auto px-4 py-6 border border-black relative">
-      {/* Horizontal lines and title */}
-      <div className="flex items-center justify-center mb-4">
-        <div className="flex-1 h-px bg-black" />
-        <h2 className="mx-4 text-3xl font-black font-serif tracking-wide">minimares</h2>
-        <div className="flex-1 h-px bg-black" />
-      </div>
+    <div className="max-w-md mx-auto px-4 pt-8 pb-6 border border-black relative">
+      {/* Title badge on top center */}
+      <h2 className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white px-4 text-2xl font-black font-serif tracking-wide">
+        {data.category}
+      </h2>
 
       {/* Text content */}
       <p className="text-base leading-relaxed font-medium text-black">
-        En goguette en Maine-et-Loire, François Bayrou dénonce un mal français (« Ouest France » , 25/7) :
-        « Chacun travaille dans son coin et n’aime pas œuvrer avec les autres. » Pas comme un certain président du MoDem, bien connu pour son goût de la gestion collective.
+        {data.shortdescription}
       </p>
 
       {/* Red square dot */}
@@ -22,4 +33,6 @@ export default function MinimaresCard() {
       </div>
     </div>
   );
-}
+};
+
+export default MinimaresCard;

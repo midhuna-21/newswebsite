@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
-import image from '../../public/images/right-card.png';
+import image from '../../public/images/full-card.png';
 
-const ArticleLeftCard = () => {
+const FullCard = () => {
   return (
     <div>
       <Image
@@ -16,4 +16,4 @@ const ArticleLeftCard = () => {
   );
 };
 
-export default ArticleLeftCard;
+export default FullCard;

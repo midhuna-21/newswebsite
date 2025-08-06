@@ -4,9 +4,23 @@ import Headline from './Headline';
 import SuppleantArticle from './SuppleantArticle';
 import MinimaresCard from './MinimaresCard';
 
-const SecondIndexSection = () => {
+interface NewsData {
+  category: string;
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  shortdescription?: string;
+  description?: string;
+}
+
+interface Props {
+  data: NewsData[];
+}
+
+const SecondIndexSection:React.FC<Props> = ({data}) => {
   return (
-    <section className="w-full bg-white px-4 md:px-8 py-10">
+    <section className="w-full bg-white px-4 md:px-8 py-3">
       {/* Headline centered */}
       <Headline />
 
@@ -14,17 +28,17 @@ const SecondIndexSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mx-auto">
         {/* Left: 6 articles in 2 rows of 3 - spans 9/12 */}
         <div className="md:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <SuppleantArticle />
-          <SuppleantArticle />
-          <SuppleantArticle />
-          <SuppleantArticle />
-          <SuppleantArticle />
-          <SuppleantArticle />
+          <SuppleantArticle data={data[0]} />
+          <SuppleantArticle data={data[1]}/>
+          <SuppleantArticle data={data[2]}/>
+          <SuppleantArticle data={data[3]}/>
+          <SuppleantArticle data={data[4]}/>
+          <SuppleantArticle data={data[5]}/>
         </div>
 
         {/* Right: MinimaresCard - spans 3/12 */}
         <div className="md:col-span-3">
-          <MinimaresCard />
+          <MinimaresCard data={data[5]}/>
         </div>
       </div>
     </section>

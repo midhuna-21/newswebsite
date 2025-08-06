@@ -1,23 +1,38 @@
 import Image from 'next/image';
 import React from 'react';
 
-export default function BayrouCard() {
+interface NewsData {
+  category: string;
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  shortdescription?: string;
+  description?: string;
+}
+
+interface Props {
+  data: NewsData;
+}
+
+const BayrouCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className="max-w-sm p-4 border border-gray-300 bg-gray-50">
+ <div className="w-[330px] p-12 border border-gray-300 bg-gray-50">
       <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-        {/* <Image
-          src={illustration}
-          alt="Bayrou illustration"
-          className="w-full object-contain"
-          placeholder="blur"
-        /> */}
+        <div className="relative w-full h-[300px]"> 
+          <Image
+            src={data?.image}
+            alt={data?.title}
+            fill
+            className="object-cover rounded-t-2xl"
+          />
+        </div>
       </div>
-      <p className="mt-4 text-center text-red-600 font-bold leading-snug text-lg">
-        Bétharram ou la mémoire<br />
-        sélective du révérend<br />
-        père Bayrou
+      <p className="mt-4 text-center text-red-600  hover:underline font-bold leading-snug text-lg">
+        {data?.title}
       </p>
     </div>
   );
-}
+};
 
+export default BayrouCard;

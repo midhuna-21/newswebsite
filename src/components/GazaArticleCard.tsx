@@ -1,37 +1,49 @@
 // components/GazaArticleCard.tsx
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
-const GazaArticleCard = () => {
+interface NewsData {
+  category: string;
+  title: string;
+  slug: string;
+  date: string;
+  image: string;
+  shortdescription?: string;
+  description?: string;
+}
+
+interface Props {
+  data: NewsData;
+}
+
+const GazaArticleCard: React.FC<Props> = ({ data }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
-      {/* Cartoon Image */}
-      <div className="mb-4">
-        {/* <Image
-          src={cartoon}
-          alt="Cartoon Gaza"
-          className="w-full h-auto"
-        /> */}
-      </div>
+      <Link href={`/${data.category}/${data.slug}`}>
+        <div className="mb-4">
+          <Image
+            src={data.image}
+            alt={data.title}
+            width={400}
+            height={300}
+            className="w-[400px] h-[300px] object-cover"
+          />
+        </div>
+      </Link>
 
-      {/* Meta */}
       <div className="text-sm mb-2">
-        <span className="text-red-600 font-semibold">International</span>
-        <span className="text-black"> • Israël-Palestine</span>
+        <span className="text-red-600 font-semibold">{data.category}</span>
       </div>
 
-      {/* Title */}
-      <h2 className="text-xl font-bold underline mb-2">
-        Clap de faim à Gaza ?
-      </h2>
-
-      {/* Paragraph */}
-      <p className="text-[16px] leading-relaxed text-black">
-        Sous la pression grandissante — mais encore trop timide — de la communauté internationale,
-        le Premier ministre israélien, Benyamin Netanyahou, a consenti à desserrer un peu l'étau
-        d'inhumanité qui enserre la bande de Gaza. Insuffisant pour empêcher les Palestiniens de
-        mourir encore de faim en tentant de survivre.
+      <p className="text-xl lg:text-2xl font-bold hover:underline text-gray-900 mb-2">
+        {data.title}
       </p>
+
+      <p className="text-xs sm:text-sm md:text-base text-black text-justify mb-2 md:mb-0">
+        {data.shortdescription}
+      </p>
+
     </div>
   );
 };

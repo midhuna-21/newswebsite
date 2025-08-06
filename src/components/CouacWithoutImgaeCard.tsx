@@ -1,23 +1,28 @@
 // components/CouacCard.tsx
 import Image from 'next/image';
 
-export default function CouacWithoutImgaeCard() {
+interface NewsData {
+  slug:string;
+  title:string;
+  category:string;
+  shortdescription:string;
+  description:string;
+  image:string;
+  date:string;
+}
+interface Props {
+  data:NewsData;
+}
+
+const CouacWithoutImgaeCard:React.FC<Props>=({data}) => {
   return (
     <div className="w-full max-w-md mx-auto bg-white p-4">
       {/* Header */}
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-full overflow-hidden">
-          <Image
-            src="/couac-icon.png" // replace with your icon in /public
-            alt="Couac Icon"
-            width={40}
-            height={40}
-            className="object-cover"
-          />
-        </div>
+      
         <div>
-          <h2 className="text-lg font-bold text-black leading-tight">Couac</h2>
-          <p className="text-xs text-red-600 uppercase font-semibold">Gare aux arnaques</p>
+          {/* <h2 className="text-lg font-bold text-black leading-tight">Couac</h2> */}
+          <p className="text-xs text-red-600 uppercase font-semibold">{data.category}</p>
         </div>
       </div>
 
@@ -27,21 +32,16 @@ export default function CouacWithoutImgaeCard() {
 
       {/* Article Title & Summary */}
       <div>
-        <h3 className="text-lg font-bold underline text-black">
-          Abonnements forcés chez Canal+ ?
-        </h3>
-        <p className="text-sm text-black mt-2">
-          La chaîne détenue par le groupe Bolloré semble pratiquer des changements d’offres à l’insu de ses abonnés ?...
+     <p className="text-lg lg:text-xl font-bold hover:underline text-gray-900 mb-2">
+          {data.title}
         </p>
-      </div>
-
-      <hr className="my-4 border-black/20" />
-
-      {/* Sub-links */}
-      <div className="space-y-2 text-sm text-black font-semibold">
-        <p>Lycéens en Borne out</p>
-        <p>« Ophelia’s Got Talent », histoires d’eau</p>
+       <p className="text-xs sm:text-sm md:text-base text-black text-justify mb-2 md:mb-0">
+        {data.shortdescription}
+      </p>
       </div>
     </div>
   );
 }
+
+
+export default CouacWithoutImgaeCard;

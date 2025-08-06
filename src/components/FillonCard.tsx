@@ -1,26 +1,42 @@
-// components/FillonCard.tsx
-
 import Image from "next/image";
 import React from "react";
-// import FillonImage from "../public/c57ab2ce-01ba-4ca0-834e-5c6136ffc0f1.png";
 import { FaPlay } from "react-icons/fa";
 
-const FillonCard = () => {
+interface NewsData {
+  slug: string;
+  title: string;
+  category: string;
+  shortdescription: string;
+  description: string;
+  image: string;
+  date: string;
+}
+
+interface Props {
+  data: NewsData;
+}
+
+const FillonCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className="w-full max-w-xs rounded-xl overflow-hidden bg-gradient-to-br from-neutral-800 to-neutral-900 p-2">
-      <div className="rounded-md overflow-hidden">
-        {/* <Image
-          src={FillonImage}
-          alt="Affaire Fillon : L'histoire sans fin"
-          className="w-full h-auto"
-          placeholder="blur"
-        /> */}
+    <div className="w-full max-w-xs rounded-xl overflow-hidden bg-gradient-to-br from-neutral-700 to-neutral-800 p-2">
+      {/* Black background container */}
+      <div className="w-[250px] h-[200px] mx-auto bg-black flex items-center justify-center">
+        {/* Smaller image inside */}
+        <div className="w-[80%] h-[80%] relative">
+          <Image
+            src={data.image}
+            alt={data.title}
+            fill
+            className="object-contain"
+          />
+        </div>
       </div>
+
       <div className="flex items-center gap-2 mt-3 text-white text-sm font-semibold">
-        <div className="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center">
+        <div className="w-12 h-6 bg-red-600 rounded-full flex items-center justify-center">
           <FaPlay className="text-xs" />
         </div>
-        <span>AFFAIRE FILLON : L'HISTOIRE SANS FIN</span>
+        <span>{data.category} : {data.title}</span>
       </div>
     </div>
   );

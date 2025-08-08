@@ -4,13 +4,13 @@ import Headline from './Headline';
 import BayrouCard from './BayrouCard';
 
 interface NewsData {
-  slug: string;
-  title: string;
   category: string;
-  shortdescription: string;
-  description: string;
-  image: string;
+  title: string;
+  slug: string;
   date: string;
+  image: string;
+  shortdescription?: string;
+  description?: string;
 }
 
 interface Props {
@@ -21,65 +21,72 @@ const DossiersSection: React.FC<Props> = ({ data }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [pagesCount, setPagesCount] = useState(0);
+  const [isMobileScroll, setIsMobileScroll] = useState(false);
+  const [cardsPerPage, setCardsPerPage] = useState(1);
 
   useEffect(() => {
-    const updatePages = () => {
+    const updateLayout = () => {
       const width = window.innerWidth;
+
       if (width < 640) {
-        setPagesCount(data.length); // 1 per page
+        setCardsPerPage(1);
+        setPagesCount(data.length);
+        setIsMobileScroll(true);
       } else if (width < 1024) {
-        setPagesCount(Math.ceil(data.length / 2)); // 2 per page
+        setCardsPerPage(2);
+        setPagesCount(Math.ceil(data.length / 2));
+        setIsMobileScroll(true);
       } else {
-        setPagesCount(Math.ceil(data.length / 3)); // 3 per page
+        setCardsPerPage(data.length); 
+        setPagesCount(0);
+        setIsMobileScroll(false);
       }
     };
 
-    updatePages();
-    window.addEventListener('resize', updatePages);
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
 
     const container = scrollRef.current;
     if (!container) return;
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const cardWidth = container.clientWidth;
-      const index = Math.round(scrollLeft / cardWidth);
+      const cardWidth = container.clientWidth / cardsPerPage;
+      const index = Math.round(scrollLeft / (cardWidth * cardsPerPage));
       setActiveIndex(index);
     };
 
     container.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('resize', updatePages);
+      window.removeEventListener('resize', updateLayout);
       container.removeEventListener('scroll', handleScroll);
     };
-  }, [data.length]);
+  }, [data.length, cardsPerPage]);
 
   return (
     <section className="w-full bg-white mt-10">
       <Headline />
 
-      {/* Scroll container with spacing */}
-<div
-  ref={scrollRef}
-  className="flex overflow-x-auto scroll-smooth justify-center gap-6 sm:gap-4 mt-5 px-4 py-2 mb-4"
-  style={{ scrollSnapType: 'x mandatory' }}
->
-
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto scroll-smooth gap-6 sm:gap-4 mt-5 px-4 py-2 mb-4"
+        style={{ scrollSnapType: 'x mandatory' }}
+      >
         {data.map((item, index) => (
-        <div
-  key={index}
-  className="flex-shrink-0 w-full sm:w-auto"
-  style={{ scrollSnapAlign: 'start' }}
->
+          <div
+            key={index}
+            className="flex-shrink-0 w-full sm:w-1/2 md:w-auto"
+            style={{ scrollSnapAlign: 'start' }}
+          >
             <BayrouCard data={item} />
           </div>
         ))}
       </div>
 
       {/* Pagination dots */}
-      {pagesCount > 1 && (
-        <div className="flex justify-center mt-2 space-x-2">
+      {isMobileScroll && pagesCount > 1 && (
+        <div className="flex justify-center mt-4 space-x-2">
           {Array.from({ length: pagesCount }).map((_, index) => (
             <span
               key={index}

@@ -1,6 +1,5 @@
-Afriimport React from 'react';
+import React from 'react';
 import Image from 'next/image';
-import cartoonImage from '@/public/0c269afa-e47d-4ae3-9cbc-62c32420e221.png'; // Adjust if your image is in public/
 
 export default function AfricaIntelligenceCard() {
   return (
@@ -20,12 +19,12 @@ export default function AfricaIntelligenceCard() {
 
       {/* Right image section */}
       <div className="flex-shrink-0 w-full md:w-[320px]">
-        <Image
+        {/* <Image
           src={cartoonImage}
           alt="Caricature Sahel"
           className="w-full h-auto rounded-sm"
           placeholder="blur"
-        />
+        /> */}
       </div>
     </div>
   );

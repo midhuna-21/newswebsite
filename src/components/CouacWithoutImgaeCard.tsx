@@ -16,7 +16,7 @@ interface Props {
 
 const CouacWithoutImgaeCard:React.FC<Props>=({data}) => {
   return (
-    <div className="w-full max-w-md mx-auto bg-white p-4">
+    <div className="w-full max-w-md mx-auto bg-white">
       {/* Header */}
       <div className="flex items-center gap-3 mb-2">
       

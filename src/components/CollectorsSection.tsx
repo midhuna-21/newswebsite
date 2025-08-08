@@ -22,19 +22,23 @@ const CollectorsSection: React.FC<Props> = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [pagesCount, setPagesCount] = useState(0);
   const [isMobileScroll, setIsMobileScroll] = useState(false);
+  const [cardsPerPage, setCardsPerPage] = useState(1);
 
   useEffect(() => {
     const updateLayout = () => {
       const width = window.innerWidth;
 
       if (width < 640) {
-        setPagesCount(data.length); // 1 per page
+        setCardsPerPage(1);
+        setPagesCount(data.length);
         setIsMobileScroll(true);
       } else if (width < 1024) {
-        setPagesCount(Math.ceil(data.length / 2)); // 2 per page
+        setCardsPerPage(2);
+        setPagesCount(Math.ceil(data.length / 2));
         setIsMobileScroll(true);
       } else {
-        setPagesCount(0); // No dots, no scroll
+        setCardsPerPage(data.length); // everything fits, no scroll dots
+        setPagesCount(0);
         setIsMobileScroll(false);
       }
     };
@@ -47,8 +51,8 @@ const CollectorsSection: React.FC<Props> = ({ data }) => {
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const cardWidth = container.clientWidth;
-      const index = Math.round(scrollLeft / cardWidth);
+      const cardWidth = container.clientWidth / cardsPerPage;
+      const index = Math.round(scrollLeft / (cardWidth * cardsPerPage));
       setActiveIndex(index);
     };
 
@@ -58,7 +62,7 @@ const CollectorsSection: React.FC<Props> = ({ data }) => {
       window.removeEventListener('resize', updateLayout);
       container.removeEventListener('scroll', handleScroll);
     };
-  }, [data.length]);
+  }, [data.length, cardsPerPage]);
 
   return (
     <section className="w-full bg-white mt-10">
@@ -72,7 +76,7 @@ const CollectorsSection: React.FC<Props> = ({ data }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-full sm:w-auto"
+            className="flex-shrink-0 w-full sm:w-1/2 md:w-auto"
             style={{ scrollSnapAlign: 'start' }}
           >
             <BayrouCard data={item} />
@@ -86,8 +90,9 @@ const CollectorsSection: React.FC<Props> = ({ data }) => {
           {Array.from({ length: pagesCount }).map((_, index) => (
             <span
               key={index}
-              className={`h-2 w-2 rounded-full transition-colors duration-300 ${index === activeIndex ? 'bg-red-500' : 'bg-gray-400'
-                }`}
+              className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                index === activeIndex ? 'bg-red-500' : 'bg-gray-400'
+              }`}
             ></span>
           ))}
         </div>

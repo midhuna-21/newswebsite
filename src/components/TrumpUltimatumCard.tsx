@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface NewsData {
   slug: string;
@@ -10,16 +11,30 @@ interface NewsData {
   date: string;
   image: string;
 }
+
 interface Props {
   data: NewsData;
 }
 
 const TrumpUltimatumCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className="mx-auto p-3 border border-gray-300 bg-white text-center">
-      {/* Headline with fixed height for up to 5 lines */}
-      <div className="overflow-hidden flex items-start justify-center">
-        <h2 className="text-sm font-medium leading-snug text-black uppercase">
+    <div
+      className="mx-auto p-3 border border-gray-300 bg-white text-center"
+      style={{ height: '330px' }} // 🔒 Fixed total card height
+    >
+      {/* Headline with max 5 lines */}
+          <Link href={`/${data.category}/${data.slug}`} className="text-decoration-none" title={data.slug}>
+     
+      <div
+        className="overflow-hidden mb-2"
+        style={{
+          height: '80px', // ~5 lines max
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
+        }}
+      >
+        <h2 className="text-sm font-medium leading-snug text-black uppercase line-clamp-5">
           {data?.title}
         </h2>
       </div>
@@ -33,6 +48,7 @@ const TrumpUltimatumCard: React.FC<Props> = ({ data }) => {
           className="object-contain"
         />
       </div>
+      </Link>
     </div>
   );
 };

@@ -19,6 +19,7 @@ interface Props {
 const CategoryFirstSection: React.FC<Props> = ({ data }) => {
     return (
         <section className="w-full mt-5 bg-white text-black border-gray-200 pb-12">
+            
             <div className="md:max-w-7xl mx-auto">
                 {/* Logo and Subtitle */}
                 <div className="flex flex-col space-y-1">

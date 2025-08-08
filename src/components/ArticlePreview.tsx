@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface NewsData {
   category: string;
@@ -26,28 +27,33 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
         <span className="ml-2 text-red-600">•</span>
       </div>
 
-      {/* Mobile Layout (md and below) */}
+      {/* Mobile + Tablet Layout (md and below) */}
       <div className="md:hidden flex gap-3 sm:gap-4 mb-2">
+                    <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
+        
         <div className="flex-1 min-w-0 pr-2">
-          <p className="text-lg sm:text-xl font-bold leading-tight text-gray-900 hover:underline cursor-pointer">
+          <p className="text-base sm:text-lg md:text-xl font-bold leading-tight text-gray-900 hover:underline cursor-pointer">
             {data.title}
           </p>
         </div>
-        <div className="flex-shrink-0 w-28 sm:w-36 relative">
+        <div className="flex-shrink-0 w-24 sm:w-28 md:w-32 relative">
           <Image
             src={data.image}
             alt={data.title}
-            width={144}
+            width={128}
             height={96}
-            className="w-full h-20 sm:h-24 object-cover"
+            className="w-full h-20 sm:h-24 md:h-28 object-cover"
           />
         </div>
+        </Link>
       </div>
 
       {/* Desktop Layout (md and above) */}
+                    <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
       <div className="hidden md:block relative">
+
         {/* Image floats to the right */}
-        <div className="float-right w-[280px] h-[196px] ml-4 mb-2">
+        <div className="float-right w-[240px] lg:w-[280px] h-[168px] lg:h-[196px] ml-4 mb-2">
           <Image
             src={data.image}
             alt={data.title}
@@ -58,15 +64,17 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
         </div>
 
         {/* Title for desktop */}
-        <p className="text-xl lg:text-2xl font-bold hover:underline leading-snug text-gray-900 mb-2">
+        <p className="text-lg lg:text-2xl font-bold hover:underline leading-snug text-gray-900 mb-2">
           {data.title}
         </p>
       </div>
 
-      <p className="text-xs sm:text-sm md:text-base text-black text-justify mb-2 md:mb-0">
-        {data.shortdescription}
+      {/* Description */}
+    <p className="text-xs sm:text-sm md:text-sm lg:text-base text-black text-left md:text-justify mb-2 md:mb-0">
+  {data.shortdescription}
       </p>
 
+</Link>
       {/* Clear float on desktop */}
       <div className="hidden md:block clear-both"></div>
     </div>

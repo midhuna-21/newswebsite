@@ -13,6 +13,7 @@ import DetailFristSection from '@/components/DetailFristSection';
 import DetailCardSection from '@/components/DetailCardSection';
 import Breadcrumb from '@/components/Breadcrumb';
 import DetailSecondSection from '@/components/DetailSecondSection';
+import Navbar from '@/components/Navbar';
 
 
 
@@ -150,7 +151,12 @@ export default async function DetailPage({ params }: DetailPageProps) {
 
   return (
     <div>
-        <Breadcrumb />
+      <div className="hidden md:block"> 
+              
+            <Navbar />
+            </div>
+      <Breadcrumb category={category} title={article.title} />
+
         <div className="px-3 sm:px-3 lg:px-5">
         <DetailFristSection data={article} />
         <DetailSecondSection data={[data[1], data[2], data[3]]} />

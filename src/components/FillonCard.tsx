@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
 
 interface NewsData {
@@ -20,6 +21,7 @@ const FillonCard: React.FC<Props> = ({ data }) => {
   return (
     <div className="w-full h-[320px] rounded-xl overflow-hidden bg-gradient-to-br from-neutral-700 to-neutral-800 p-3">
       {/* Black background container */}
+         <Link href={`/${data.category}/${data.slug}`} className="text-decoration-none" title={data.slug}>
       <div className="w-[250px] h-[200px] mx-auto bg-black flex items-center justify-center">
         {/* Smaller image inside */}
         <div className="w-[80%] h-[80%] relative">
@@ -39,6 +41,7 @@ const FillonCard: React.FC<Props> = ({ data }) => {
         </div>
         <span className="line-clamp-2">{data.category} : {data.title}</span>
       </div>
+            </Link>
     </div>
   );
 };

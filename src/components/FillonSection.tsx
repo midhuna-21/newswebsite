@@ -27,11 +27,11 @@ const FillonSection: React.FC<Props> = ({ data }) => {
     const updatePagesCount = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setPagesCount(data.length); // 1 per page
+        setPagesCount(data.length); // 1 per page (mobile)
       } else if (width < 1024) {
-        setPagesCount(Math.ceil(data.length / 2)); // 2 per page
+        setPagesCount(Math.ceil(data.length / 3)); // 3 per page (tablet)
       } else {
-        setPagesCount(0); // No dots on large screens
+        setPagesCount(0); // No pagination on large screens
       }
     };
 
@@ -68,7 +68,6 @@ const FillonSection: React.FC<Props> = ({ data }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-full sm:w-1/2 md:w-1/4"
           >
             <FillonCard data={item} />
           </div>

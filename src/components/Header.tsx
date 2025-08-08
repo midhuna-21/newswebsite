@@ -40,19 +40,17 @@ export default function Header() {
           }}>
       <div className="relative w-full py-3 lg:py-6 flex items-center justify-between px-4 sm:px-6">
 
-        {/* Left - Mobile Menu & Logo (on small screens), only Menu on desktop */}
         <div className="flex items-center space-x-3">
           {/* MENU Button */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="flex flex-col items-center space-y-1 text-red-600 text-xs cursor-pointer md:pl-2"
-          >
+          className="flex flex-col items-center space-y-1 text-red-600 text-xs cursor-pointer md:pl-2 lg:hidden"
+  >
             <div className="space-y-1">
               <span className="block w-6 h-0.5 bg-red-600"></span>
               <span className="block w-6 h-0.5 bg-red-600"></span>
               <span className="block w-6 h-0.5 bg-red-600"></span>
             </div>
-            <span className="mt-1 md:hidden">MENU</span>
           </button>
 
           {/* Logo (visible on all sizes but centered only on desktop) */}

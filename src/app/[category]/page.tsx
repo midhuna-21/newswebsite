@@ -11,6 +11,7 @@ import CategoryFirstSection from '@/components/CategoryFristSection';
 import CatSecondSection from '@/components/CatSecondSection';
 import CatThirdSection from '@/components/CatThirdSection';
 import Breadcrumb from '@/components/Breadcrumb';
+import Navbar from '@/components/Navbar';
 
 
 interface NewsItem {
@@ -58,7 +59,12 @@ export default async function CategoryPage({
 
   return (
     <div>
-      <Breadcrumb />
+      <div className="hidden md:block"> 
+              
+            <Navbar />
+            </div>
+    <Breadcrumb category={category} />
+
       <div className="px-3 sm:px-3 lg:px-5">
         <div className='border-b border-gray-200'>
           <CategoryFirstSection data={data[0]} />

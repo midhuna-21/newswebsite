@@ -21,10 +21,15 @@ import SubscribeCanard from "@/components/SubscribeCanard";
 import PrisesAndCouacSection from "@/components/PrisesAndCouacSection";
 import Footer from "@/components/Footer";
 import FullCard from "@/components/FullCard";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <div>
+      <div className="hidden md:block"> 
+        
+      <Navbar />
+      </div>
       <NewsHighlightRow data={[businessData[0], sportsData[0], politicsData[0]]} />
       <div className="px-3 sm:px-3 lg:px-5">
 
@@ -40,7 +45,7 @@ export default function Home() {
 
         <TrumpUltimatumSection data={[healthData[3], healthData[4], healthData[5], healthData[6]]} />
 
-        <FillonSection data={[lifestyleData[3], lifestyleData[4], lifestyleData[5], lifestyleData[6]]} />
+        <FillonSection data={[technologyData[3], technologyData[4], technologyData[5], technologyData[6]]} />
 
         <FullCard />
 

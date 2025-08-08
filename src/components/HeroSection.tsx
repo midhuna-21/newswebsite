@@ -58,7 +58,7 @@ const HeroSection: React.FC<Props> = ({ data }) => {
           <div className="border-b border-gray-300 pb-4 md:border-b-0 md:pb-0">
             <ArticlePreview data={data[1]} />
           </div>
-          <ArticlePreview data={data[2]} />
+          <ArticlePreview data={data[1]} />
         </div>
 
 
@@ -82,7 +82,7 @@ const HeroSection: React.FC<Props> = ({ data }) => {
         <div className="mx-auto flex flex-col md:flex-row gap-6 mt-12 border-gray-200 ">
           <GazaArticleCard data={data[0]} />
           <GazaArticleCard data={data[1]} />
-          <GazaArticleCard data={data[2]} />
+          <GazaArticleCard data={data[0]} />
         </div>
 
         {/* last section */}

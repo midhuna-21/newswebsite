@@ -17,9 +17,11 @@ interface Props {
 
 const BayrouCard: React.FC<Props> = ({ data }) => {
   return (
- <div className="w-[330px] p-12 border border-gray-300 bg-gray-50">
+<div className="md:w-[330px] w-full p-12 border-2 border-gray-300 bg-gray-50 h-[500px]">
+
       <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-        <div className="relative w-full h-[300px]"> 
+           <div className="relative w-full h-[300px]">
+
           <Image
             src={data?.image}
             alt={data?.title}

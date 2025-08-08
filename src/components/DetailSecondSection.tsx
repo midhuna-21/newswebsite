@@ -1,6 +1,5 @@
-import CastexArticleCard from "./CastexArticleCard"
 import GazaArticleCard from "./GazaArticleCard";
-import SignatairesArticleCard from "./SignatairesArticleCard"
+import Headline from "./Headline";
 
 
 interface NewsData {
@@ -15,10 +14,13 @@ interface NewsData {
 interface Props {
   data: NewsData[];
 }
-const CatSecondSection: React.FC<Props> = ({ data }) => {
+const DetailSecondSection: React.FC<Props> = ({ data }) => {
   return (
     <>
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row py-8">
+    <div className="mt-16">
+      <Headline />
+    </div>
+    <div className="mx-auto flex flex-col md:flex-row mt-8 border-gray-200">
   <div className="md:border-r md:pr-6 border-gray-200">
     <GazaArticleCard data={data[0]} />
   </div>
@@ -34,4 +36,4 @@ const CatSecondSection: React.FC<Props> = ({ data }) => {
   )
 }
 
-export default CatSecondSection
+export default DetailSecondSection;

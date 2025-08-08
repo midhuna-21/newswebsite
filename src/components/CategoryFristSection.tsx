@@ -18,21 +18,13 @@ interface Props {
 
 const CategoryFirstSection: React.FC<Props> = ({ data }) => {
     return (
-        <section className="w-full px-4 md:px-8 mt-5 bg-white text-black border-b border-gray-200 pb-12">
-            <div className="max-w-6xl mx-auto">
+        <section className="w-full mt-5 bg-white text-black border-gray-200 pb-12">
+            <div className="md:max-w-7xl mx-auto">
                 {/* Logo and Subtitle */}
                 <div className="flex flex-col space-y-1">
                     <div className="flex items-center space-x-2">
-                        <h1 className="text-5xl font-bold leading-none">
-                            {data.category.split('').map((char, index) => (
-                                <span
-                                    key={index}
-                                    className="inline-block transform -translate-y-1"
-                                >
-                                    {char}
-                                </span>
-                            ))}
-                            {/* <span className="text-red-600 text-5xl font-bold">+</span> */}
+                        <h1 className="text-6xl font-bold leading-none uppercase">
+                                    {data.category}
                         </h1>
                     </div>
 

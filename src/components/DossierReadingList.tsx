@@ -19,7 +19,7 @@ const DossierReadingList: React.FC<Props> = ({ data }) => {
   if (data.length === 0) return null;
 
   return (
-    <div className="w-full max-w-md mx-auto p-4">
+    <div className="w-full max-w-md mx-auto">
       <h3 className="text-base font-semibold text-black mb-3">
         {data[0].category} {/* Assumes all items are from the same category */}
       </h3>

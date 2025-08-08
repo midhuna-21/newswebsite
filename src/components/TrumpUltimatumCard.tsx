@@ -16,9 +16,9 @@ interface Props {
 
 const TrumpUltimatumCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className="max-w-sm mx-auto p-3 border border-gray-300 bg-white text-center">
+    <div className="mx-auto p-3 border border-gray-300 bg-white text-center">
       {/* Headline with fixed height for up to 5 lines */}
-      <div className="h-[80px] overflow-hidden flex items-start justify-center">
+      <div className="overflow-hidden flex items-start justify-center">
         <h2 className="text-sm font-medium leading-snug text-black uppercase">
           {data?.title}
         </h2>

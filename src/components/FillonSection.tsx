@@ -1,36 +1,102 @@
-// components/FillonSection.tsx
-import React from "react";
+"use client";
+
+import React, { useRef, useState, useEffect } from "react";
 import Headline from "./Headline";
 import FillonCard from "./FillonCard";
 
- interface NewsData {
-  slug:string;
-  title:string;
-  category:string;
-  shortdescription:string;
-  description:string;
-  image:string;
-  date:string;
-}
-interface Props {
-  data:NewsData[];
+interface NewsData {
+  slug: string;
+  title: string;
+  category: string;
+  shortdescription: string;
+  description: string;
+  image: string;
+  date: string;
 }
 
-const FillonSection:React.FC<Props>=({data}) => {
+interface Props {
+  data: NewsData[];
+}
+
+const FillonSection: React.FC<Props> = ({ data }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [pagesCount, setPagesCount] = useState(0);
+
+  useEffect(() => {
+    const updatePagesCount = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setPagesCount(data.length); // 1 per page
+      } else if (width < 1024) {
+        setPagesCount(Math.ceil(data.length / 2)); // 2 per page
+      } else {
+        setPagesCount(0); // No dots on large screens
+      }
+    };
+
+    updatePagesCount();
+    window.addEventListener("resize", updatePagesCount);
+
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.clientWidth;
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveIndex(index);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("resize", updatePagesCount);
+      container.removeEventListener("scroll", handleScroll);
+    };
+  }, [data.length]);
+
   return (
-    <section className="w-full bg-white px-4 md:px-8 py-8">
-      {/* Headline */}
+    <section className="w-full bg-white mt-16">
       <Headline />
 
-      {/* Grid of FillonCards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-5">
-        <FillonCard data={data[0]}/>
-        <FillonCard data={data[1]}/>
-        <FillonCard data={data[2]}/>
-        <FillonCard data={data[3]}/>
+      {/* Scrollable container for mobile/tablet */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto scroll-smooth scrollbar-hide gap-6 mt-5 px-4 py-2 mb-4 lg:hidden"
+      >
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-full sm:w-1/2 md:w-1/4"
+          >
+            <FillonCard data={item} />
+          </div>
+        ))}
       </div>
+
+      {/* Grid layout on large screens */}
+      <div className="hidden lg:grid grid-cols-4 gap-6 mt-5 px-4">
+        {data.slice(0, 4).map((item, index) => (
+          <FillonCard key={index} data={item} />
+        ))}
+      </div>
+
+      {/* Pagination dots: only on small/medium screens */}
+      {pagesCount > 0 && (
+        <div className="flex justify-center mt-4 space-x-2 lg:hidden">
+          {Array.from({ length: pagesCount }).map((_, index) => (
+            <span
+              key={index}
+              className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                index === activeIndex ? "bg-red-500" : "bg-gray-400"
+              }`}
+            ></span>
+          ))}
+        </div>
+      )}
     </section>
   );
-}
+};
 
-export default FillonSection
+export default FillonSection;

@@ -16,7 +16,7 @@ interface Props {
 
 const SuppleantArticle: React.FC<Props> = ({ data }) => {
   return (
-    <div className="max-w-md px-4 py-4 mx-auto">
+    <div className="max-w-md mx-auto">
       {/* Title with bullet */}
       <h3 className="flex items-start text-[17px] font-bold mb-2">
         <span className="text-red-600 text-lg leading-none mr-2 mt-[6px]">•</span>

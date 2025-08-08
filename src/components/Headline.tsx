@@ -2,7 +2,7 @@ import React from 'react';
 
 const Headline: React.FC = () => {
   return (
-    <div className="flex items-center justify-center w-full py-4 px-2">
+    <div className="flex items-center justify-center w-full">
       {/* Left Line */}
       <div className="flex-grow border-t-2 border-red-600"></div>
 

@@ -10,8 +10,9 @@ import entertainmentData from '../../../../public/data/entertainment.json'
 import educationData from '../../../../public/data/education.json';
 import { Metadata } from 'next';
 import DetailFristSection from '@/components/DetailFristSection';
-import CatSecondSection from '@/components/CatSecondSection';
 import DetailCardSection from '@/components/DetailCardSection';
+import Breadcrumb from '@/components/Breadcrumb';
+import DetailSecondSection from '@/components/DetailSecondSection';
 
 
 
@@ -137,21 +138,24 @@ export default async function DetailPage({ params }: DetailPageProps) {
     return <div className="p-4">No article found for slug {slug}</div>;
   }
 
-//   if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {
-//     return (
-//       <main>
-        
+  //   if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {
+  //     return (
+  //       <main>
 
-//         <StaticDetailPage />
-//       </main>
-//     );
-//   }
+
+  //         <StaticDetailPage />
+  //       </main>
+  //     );
+  //   }
 
   return (
     <div>
-    <DetailFristSection data={article}/>
-     <CatSecondSection data={[data[1],data[2],data[3]]} />
-     <DetailCardSection data={[data[4],data[5],data[6]]} />
+        <Breadcrumb />
+        <div className="px-3 sm:px-3 lg:px-5">
+        <DetailFristSection data={article} />
+        <DetailSecondSection data={[data[1], data[2], data[3]]} />
+        <DetailCardSection data={[data[4], data[5], data[6],data[7],data[8],data[9]]} />
+      </div>
     </div>
 
 

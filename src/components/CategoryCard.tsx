@@ -14,7 +14,7 @@ interface Props {
 }
 const CategoryCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-5xl mx-auto m-3">
       {/* Badge */}
       <div className="flex items-center space-x-2 mb-2">
         <span className="text-red-600 text-sm font-medium">{data.category}</span>
@@ -22,11 +22,10 @@ const CategoryCard: React.FC<Props> = ({ data }) => {
       </div>
 
       {/* Title */}
-      <p className="text-xl lg:text-2xl font-bold hover:underline leading-snug text-gray-900 mb-2">
-        {data.title}
-      </p>
+    <p className="text-xl lg:text-2xl font-bold hover:underline leading-snug text-gray-900 mb-2">
+          {data.title}
+        </p>
 
-      {/* Description */}
       <p className="text-xs sm:text-sm md:text-base text-black text-justify mb-2 md:mb-0">
         {data.shortdescription}
       </p>

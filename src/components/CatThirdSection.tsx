@@ -1,55 +1,57 @@
 import CastexArticleCard from "./CastexArticleCard"
 import CategoryCard from "./CategoryCard";
 import CategoryCardWithImage from "./CategoryCardWithImage";
+import CatSubscribe from "./CatSubscribe";
+import DetailTitleList from "./DetailTitleList";
+import DossierReadingList from "./DossierReadingList";
+import EditoEspion from "./EditoEspion";
+import FillonCard from "./FillonCard";
 import GazaArticleCard from "./GazaArticleCard";
 import SignatairesArticleCard from "./SignatairesArticleCard"
-
+import TrumpUltimatumCard from "./TrumpUltimatumCard";
 
 interface NewsData {
-    slug: string;
-    title: string;
-    category: string;
-    shortdescription: string;
-    description: string;
-    image: string;
-    date: string;
+  slug: string;
+  title: string;
+  category: string;
+  shortdescription: string;
+  description: string;
+  image: string;
+  date: string;
 }
+
 interface Props {
-    data: NewsData[];
+  data: NewsData[];
 }
+
 const CatThirdSection: React.FC<Props> = ({ data }) => {
-    return (
-        <>
-            <div className="flex flex-col md:flex-col gap-6 px-4 md:px-8 pb-8 mt-5">
-        <div className="w-full md:w-1/2">
-          <CategoryCard data={data[0]}/>
-          <CategoryCardWithImage data={data[1]} />
-            <CategoryCard data={data[2]}/>
-          <CategoryCardWithImage data={data[3]} />  
-          <CategoryCard data={data[4]}/>
-          <CategoryCardWithImage data={data[5]} /> 
-           <CategoryCard data={data[6]}/>
-          <CategoryCardWithImage data={data[7]} /> 
-           <CategoryCard data={data[8]}/>
-          <CategoryCardWithImage data={data[9]} /> 
-           <CategoryCard data={data[10]}/>
-          <CategoryCardWithImage data={data[11]} /> 
-           <CategoryCard data={data[12]}/>
-          <CategoryCardWithImage data={data[13]} /> 
-           <CategoryCard data={data[14]}/>
-          <CategoryCardWithImage data={data[15]} />
-          <CategoryCard data={data[16]}/>
-          <CategoryCardWithImage data={data[17]} />
-          <CategoryCard data={data[18]}/>
-          <CategoryCardWithImage data={data[19]} />
-          <CategoryCard data={data[20]}/>
-          <CategoryCardWithImage data={data[21]} />
+  return (
+    <div className="max-w-7xl mx-auto mt-8 px-3">
+      {/* Two-column layout */}
+      <div className="flex flex-col lg:flex-row gap-6">
+
+        {/* Left: Category cards */}
+        <div className="flex-1 pr-7 border-r border-gray-200">
+          {data.slice(0, 22).map((item, index) =>
+            index % 2 === 0 ? (
+              <CategoryCard key={item.slug || index} data={item} />
+            ) : (
+              <CategoryCardWithImage key={item.slug || index} data={item} />
+            )
+          )}
         </div>
-        
+
+        {/* Right: Trump card */}
+        <div className="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 space-y-16">
+  <DetailTitleList data={[data[1], data[2], data[3], data[0], data[5]]} />
+  <TrumpUltimatumCard data={data[21]} />
+  <FillonCard data={data[21]} />
+  <CatSubscribe />
+</div>
+
       </div>
+    </div>
+  );
+};
 
-        </>
-    )
-}
-
-export default CatThirdSection
+export default CatThirdSection;

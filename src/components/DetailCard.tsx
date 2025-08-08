@@ -15,7 +15,7 @@ interface Props {
 }
 const DetailCard:React.FC<Props>=({data}) => {
   return (
-    <div className="max-w-xs mx-auto p-4 text-center">
+    <div className="mx-auto text-center">
       {/* Image */}
       <div className="mb-2">
       <Image
@@ -28,11 +28,11 @@ const DetailCard:React.FC<Props>=({data}) => {
       </div>
 
       {/* Category */}
-      <div className="text-sm text-red-600 font-semibold">Etats-Unis</div>
+      <div className="text-sm text-red-600  hover:underline font-semibold">{data.title}</div>
 
       {/* Title */}
-      <h2 className="text-base text-black underline mt-1 font-medium">
-        Trump en chantier à la Fed
+      <h2 className="text-base text-black mt-1 font-medium line-clamp-2">
+      {data.shortdescription}
       </h2>
     </div>
   )

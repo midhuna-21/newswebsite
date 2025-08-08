@@ -18,7 +18,7 @@ interface Props {
 
 const FillonCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className="w-full max-w-xs rounded-xl overflow-hidden bg-gradient-to-br from-neutral-700 to-neutral-800 p-2">
+    <div className="w-full h-[320px] rounded-xl overflow-hidden bg-gradient-to-br from-neutral-700 to-neutral-800 p-3">
       {/* Black background container */}
       <div className="w-[250px] h-[200px] mx-auto bg-black flex items-center justify-center">
         {/* Smaller image inside */}
@@ -32,11 +32,12 @@ const FillonCard: React.FC<Props> = ({ data }) => {
         </div>
       </div>
 
+      {/* Title & Category */}
       <div className="flex items-center gap-2 mt-3 text-white text-sm font-semibold">
         <div className="w-12 h-6 bg-red-600 rounded-full flex items-center justify-center">
           <FaPlay className="text-xs" />
         </div>
-        <span>{data.category} : {data.title}</span>
+        <span className="line-clamp-2">{data.category} : {data.title}</span>
       </div>
     </div>
   );

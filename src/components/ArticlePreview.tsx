@@ -17,7 +17,7 @@ interface Props {
 
 const ArticlePreview: React.FC<Props> = ({ data }) => {
   return (
-    <div className="bg-white p-3 sm:p-4 border-b border-gray-200">
+    <div className="bg-white border-gray-200">
       {/* Category */}
       <div className="flex items-center mb-2">
         <span className="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wide">

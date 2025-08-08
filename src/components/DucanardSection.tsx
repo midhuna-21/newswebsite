@@ -17,11 +17,9 @@ interface Props {
 }
 const DucanardSection:React.FC<Props> = ({data}) => {
   return (
-    <section className="w-full bg-white px-4 md:px-8 py-5 border-t-2  border-red-600">
-      {/* Thick red line */}
-
-      {/* Content row */}
-      <div className="flex flex-col md:flex-row gap-6 items-start max-w-7xl mx-auto">
+    <section className=" bg-white px-4 md:px-8 py-5 border-t-2  border-red-600">
+    
+      <div className="max-w-5xl flex flex-col md:flex-row gap-6 items-start mx-auto mt-5">
         {/* Left: Main article */}
         <div className="flex-1">
           <DossierEspionCard data={data[4]}/>

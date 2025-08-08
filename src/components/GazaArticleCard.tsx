@@ -19,15 +19,15 @@ interface Props {
 
 const GazaArticleCard: React.FC<Props> = ({ data }) => {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
+    <div>
       <Link href={`/${data.category}/${data.slug}`}>
         <div className="mb-4">
           <Image
             src={data.image}
             alt={data.title}
-            width={400}
-            height={300}
-            className="w-[400px] h-[300px] object-cover"
+            width={500}
+            height={375}
+            className="w-[500px] h-[375px] object-cover"
           />
         </div>
       </Link>

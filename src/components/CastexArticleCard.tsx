@@ -16,11 +16,11 @@ interface Props{
 
 const CastexArticleCard:React.FC<Props> = ({data}) => {
   return (
-    <div className="max-w-md  mx-auto">
+    <div className="max-w-md mx-auto">
       {/* Meta */}
       <div className="text-sm mb-2">
         <span className="text-red-600 font-semibold">{data.category}</span>
-        {/* <span className="text-black"> • SNCF</span> */}
+        <span className="text-red-600"> • </span>
       </div>
 
       {/* Title */}

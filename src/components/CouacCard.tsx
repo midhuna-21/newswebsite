@@ -24,10 +24,9 @@ const CouacCard: React.FC<Props> = ({ data }) => {
 
       <div className="flex items-center gap-3 mb-2">
         <div>
-          <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
-                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
-          {data.category}
-        </span>
+          <p className="text-xs text-red-600 uppercase">
+            {data.category}
+          </p>
         </div>
       </div>
 
@@ -45,7 +44,7 @@ const CouacCard: React.FC<Props> = ({ data }) => {
       </div>
 
       {/* Title & Description with smaller text on tablets */}
-      <div>
+      <div> 
         <p className="text-lg md:text-sm lg:text-lg font-bold hover:underline text-gray-900 mb-2">
           {data.title}
         </p>

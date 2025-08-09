@@ -20,7 +20,7 @@ interface Props {
 const SecondIndexSection: React.FC<Props> = ({ data }) => {
   return (
     <section className="w-full bg-white mt-10">
-      <Headline />
+      <Headline title="POLITICS"/>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mx-auto p-4">
         <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7">

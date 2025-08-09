@@ -22,10 +22,7 @@ const CastexArticleCard: React.FC<Props> = ({ data }) => {
                     <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
 
       <div className="text-xs sm:text-sm mb-2">
-        <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
-                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
-          {data.category}
-        </span>
+        <span className="text-red-600">{data.category}</span>
         <span className="text-red-600"> • </span>
       </div>
 

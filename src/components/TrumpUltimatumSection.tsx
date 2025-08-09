@@ -58,7 +58,7 @@ const TrumpUltimatumSection: React.FC<Props> = ({ data }) => {
 
   return (
     <section className="w-full bg-white mt-24">
-      <Headline />
+      <Headline title='HEALTH'/>
 
       {/* Scrollable view for mobile/tablet */}
       <div

@@ -9,7 +9,7 @@ const NavItems = [
   { label: 'Politics', category: 'politics' },
   { label: 'Entertainment', category: 'entertainment' },
   { label: 'Education', category: 'education' },
-  { label: 'Lifestyle', category: 'lifestyle' },
+  // { label: 'Lifestyle', category: 'lifestyle' },
 
 ];
 

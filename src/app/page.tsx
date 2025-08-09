@@ -8,7 +8,7 @@ import scienceData from '../../public/data/science.json'
 import entertainmentData from '../../public/data/entertainment.json'
 import technologyData from '../../public/data/technology.json'
 import educationData from '../../public/data/education.json'
-import lifestyleData from '../../public/data/lifestyle.json'
+// import lifestyleData from '../../public/data/lifestyle.json'
 import HeroSection from "@/components/HeroSection";
 import SecondIndexSection from "@/components/SecondIndexSection";
 import CollectorsSection from "@/components/CollectorsSection";
@@ -32,27 +32,26 @@ export default function Home() {
       <NewsHighlightRow data={[businessData[0], sportsData[0], politicsData[0]]} />
       <div className="px-3 sm:px-3 lg:px-5">
 
-        <HeroSection data={[scienceData[0], sportsData[12], lifestyleData[0], healthData[0], entertainmentData[0], educationData[0], businessData[1], politicsData[1], healthData[1], lifestyleData[1], entertainmentData[1], educationData[1], scienceData[1]]} />
+        <HeroSection data={[politicsData[5], sportsData[7], scienceData[1], healthData[2], entertainmentData[0], educationData[0], businessData[2], politicsData[3], healthData[8], educationData[3], entertainmentData[1], educationData[1], scienceData[1]]} />
 
-        <SecondIndexSection data={[businessData[2], sportsData[2], politicsData[2], scienceData[2], educationData[1], lifestyleData[2], healthData[2]]} />
+        <SecondIndexSection data={[politicsData[2], politicsData[3], politicsData[4], politicsData[9], politicsData[6], politicsData[7], politicsData[8]]} />
 
-        <CollectorsSection data={[politicsData[3], politicsData[4], politicsData[5]]} />
+        <CollectorsSection data={[businessData[0], businessData[1], businessData[6]]} />
 
-        <AfriqueAndEspion data={[politicsData[6], politicsData[7]]} />
+        <AfriqueAndEspion data={[businessData[3], businessData[7]]} />
 
-        <DossiersSection data={[educationData[2], educationData[3], educationData[4]]} />
+        <DossiersSection data={[entertainmentData[2], entertainmentData[3], entertainmentData[4]]} />
 
         <TrumpUltimatumSection data={[healthData[3], healthData[4], healthData[5], healthData[6]]} />
 
         <FillonSection data={[technologyData[3], technologyData[4], technologyData[5], technologyData[6]]} />
 
         <FullCard />
-
         <DucanardSection data={[technologyData[1], technologyData[2], technologyData[3], technologyData[4], technologyData[5], technologyData[6]]} />
 
         <SubscribeCanard data={healthData[3]} />
 
-        <PrisesAndCouacSection data={[entertainmentData[6], scienceData[3], businessData[4], technologyData[7], politicsData[8], educationData[5], lifestyleData[7], healthData[7], sportsData[3], entertainmentData[4], scienceData[4], businessData[5], technologyData[7], politicsData[9], educationData[6], sportsData[4]]} />
+        <PrisesAndCouacSection data={[entertainmentData[6], scienceData[3], businessData[4], technologyData[7], politicsData[8], educationData[5], educationData[7], healthData[7], sportsData[3], entertainmentData[4], scienceData[4], businessData[5], technologyData[7], politicsData[9], educationData[6], sportsData[4]]} />
 
       </div>
     </div>

@@ -58,7 +58,7 @@ const FillonSection: React.FC<Props> = ({ data }) => {
 
   return (
     <section className="w-full bg-white mt-16">
-      <Headline />
+      <Headline title="TECHNOLOGY"/>
 
       {/* Scrollable container for mobile/tablet */}
       <div

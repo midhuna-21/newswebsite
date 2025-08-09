@@ -19,7 +19,7 @@
     return (
       <>
       <div className="mt-16">
-        <Headline />
+        <Headline title=""/>
       </div>
     <div className="mx-auto flex flex-col md:flex-row mt-8 border-gray-200 items-stretch">
   <div className="md:border-r md:pr-6 border-gray-200 flex-1">

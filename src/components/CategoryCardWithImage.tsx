@@ -21,18 +21,15 @@ const CategoryCardWithImage: React.FC<Props> = ({ data }) => {
     <div className="max-w-5xl mx-auto m-3 border-t border-b border-gray-200 py-4">
         <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
 
-      {/* ✅ Mobile Layout (md and below): image floated right */}
+      {/* ✅ Mobile Layout */}
       <div className="md:hidden">
-        {/* Category */}
         <div className="flex items-center mb-1">
-        <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
-                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
-          {data.category}
-        </span>
+          <span className="text-red-600 text-xs sm:text-sm uppercase tracking-wide">
+            {data.category}
+          </span>
           <span className="ml-2 text-red-600">•</span>
         </div>
 
-        {/* Image floated right */}
         <div className="float-right w-28 sm:w-36 h-20 sm:h-24 ml-3 mb-2 relative">
           <Image
             src={data.image}
@@ -42,7 +39,6 @@ const CategoryCardWithImage: React.FC<Props> = ({ data }) => {
           />
         </div>
 
-        {/* Title to the left of image */}
         <p className="text-lg sm:text-xl font-bold leading-tight text-gray-900 hover:underline cursor-pointer">
           {data.title}
         </p>
@@ -81,10 +77,7 @@ const CategoryCardWithImage: React.FC<Props> = ({ data }) => {
     <div className="flex flex-col space-y-2">
       {/* Category */}
       <div className="flex items-center space-x-2">
-   <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
-                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
-          {data.category}
-        </span>
+        <span className="text-red-600 text-sm font-medium">{data.category}</span>
         <span className="text-black text-sm">•</span>
       </div>
 

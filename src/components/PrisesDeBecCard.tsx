@@ -26,10 +26,9 @@ const PrisesDeBecCard: React.FC<Props> = ({ data }) => {
         <div className="flex-1">
           {/* Category */}
           <div className="flex items-start gap-2 mb-1 border-b pb-2">
-           <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
-                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
-          {data.category}
-        </span>
+            <p className="text-[10px] sm:text-xs text-red-600 uppercase font-medium">
+              {data.category}
+            </p>
           </div>
 
           {/* Mobile/Tablet: Image on right, text on left */}

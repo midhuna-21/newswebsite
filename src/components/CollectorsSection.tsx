@@ -66,7 +66,7 @@ const CollectorsSection: React.FC<Props> = ({ data }) => {
 
   return (
     <section className="w-full bg-white mt-10">
-      <Headline />
+      <Headline title='BUSINESS'/>
 
       <div
         ref={scrollRef}

@@ -27,7 +27,7 @@ const AfriqueAndEspion: React.FC<Props> = ({ data }) => {
 
         {/* Second card */}
         <div className="w-full md:w-1/2">
-          <EditoEspion data={data[0]} />
+          <EditoEspion data={data[1]} />
         </div>
       </div>
     </div>

@@ -151,7 +151,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
 
   return (
     <div>
-      <div className="hidden md:block"> 
+      <div className="hidden lg:block"> 
               
             <Navbar />
             </div>
@@ -160,7 +160,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
         <div className="px-3 sm:px-3 lg:px-5">
         <DetailFristSection data={article} />
         <DetailSecondSection data={[data[1], data[2], data[3]]} />
-        <DetailCardSection data={[data[4], data[5], data[6],data[7],data[8],data[9]]} />
+        <DetailCardSection data={[data[4], data[5], data[5],data[7],data[8],data[9]]} />
       </div>
     </div>
 

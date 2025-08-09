@@ -31,7 +31,7 @@ const CatThirdSection: React.FC<Props> = ({ data }) => {
       <div className="flex flex-col lg:flex-row gap-6">
 
         {/* Left: Category cards */}
-        <div className="flex-1 pr-7 border-r border-gray-200">
+        <div className="flex-1 md:pr-7 md:border-r border-gray-200">
           {data.slice(0, 22).map((item, index) =>
             index % 2 === 0 ? (
               <CategoryCard key={item.slug || index} data={item} />

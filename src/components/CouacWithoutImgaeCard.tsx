@@ -1,5 +1,6 @@
 // components/CouacCard.tsx
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface NewsData {
   slug:string;
@@ -18,6 +19,8 @@ const CouacWithoutImgaeCard:React.FC<Props>=({data}) => {
   return (
     <div className="w-full max-w-md mx-auto bg-white">
       {/* Header */}
+        <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
+
       <div className="flex items-center gap-3 mb-2">
       
         <div>
@@ -39,6 +42,7 @@ const CouacWithoutImgaeCard:React.FC<Props>=({data}) => {
         {data.shortdescription}
       </p>
       </div>
+      </Link>
     </div>
   );
 }

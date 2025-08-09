@@ -20,15 +20,14 @@ const TrumpUltimatumCard: React.FC<Props> = ({ data }) => {
   return (
     <div
       className="mx-auto p-3 border border-gray-300 bg-white text-center"
-      style={{ height: '330px' }} // 🔒 Fixed total card height
+      style={{ height: '260px' }} 
     >
-      {/* Headline with max 5 lines */}
           <Link href={`/${data.category}/${data.slug}`} className="text-decoration-none" title={data.slug}>
      
       <div
         className="overflow-hidden mb-2"
         style={{
-          height: '80px', // ~5 lines max
+          height: '80px', 
           display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'center',
@@ -40,7 +39,7 @@ const TrumpUltimatumCard: React.FC<Props> = ({ data }) => {
       </div>
 
       {/* Fixed-size Image */}
-      <div className="w-[160px] h-[190px] mx-auto relative">
+      <div className="w-[160px] h-[120px] mx-auto relative">
         <Image
           src={data?.image}
           alt={data?.title}

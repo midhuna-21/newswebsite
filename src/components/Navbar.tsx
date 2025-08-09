@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
 <div className="w-full fixed top-[70px] z-40 border-b border-gray-300 bg-amber-800 text-[16px] font-bold">
 
-      <div className="flex px-3 py-2 gap-12 overflow-x-auto whitespace-nowrap scrollbar-hide">
+      <div className="flex px-3 py-2 gap-12 whitespace-nowrap">
         {NavItems.map((item) => (
           <Link
             key={item.category}

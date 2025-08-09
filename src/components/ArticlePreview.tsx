@@ -28,8 +28,8 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
       </div>
 
       {/* Mobile + Tablet Layout (md and below) */}
-      <div className="md:hidden flex gap-3 sm:gap-4 mb-2">
                     <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
+      <div className="md:hidden flex gap-3 sm:gap-4 mb-2">
         
         <div className="flex-1 min-w-0 pr-2">
           <p className="text-base sm:text-lg md:text-xl font-bold leading-tight text-gray-900 hover:underline cursor-pointer">
@@ -45,8 +45,8 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
             className="w-full h-20 sm:h-24 md:h-28 object-cover"
           />
         </div>
-        </Link>
       </div>
+        </Link>
 
       {/* Desktop Layout (md and above) */}
                     <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>

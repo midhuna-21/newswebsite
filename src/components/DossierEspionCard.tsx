@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 interface NewsData {
   slug: string;
@@ -19,7 +20,9 @@ const DossierEspionCard: React.FC<Props> = ({ data }) => {
   return (
     <div className="w-full mx-auto flex flex-col md:flex-row md:gap-6 items-start">
       {/* Desktop + Tablet Layout: Image Left */}
+
       <div className="hidden md:flex flex-shrink-0 w-full md:w-1/3">
+              <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
         <Image
           src={data.image}
           alt={data.title}
@@ -27,10 +30,13 @@ const DossierEspionCard: React.FC<Props> = ({ data }) => {
           width={300}
           className="w-full h-auto object-contain"
         />
+      </Link>
       </div>
 
       {/* Mobile Layout: Content Left, Image Right */}
+              <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
       <div className="flex md:hidden flex-row w-full items-start gap-3 mb-3">
+        
         <div className="flex flex-col flex-1">
           <h3 className="text-xs sm:text-sm font-extrabold text-red-600 uppercase mb-1">
             {data.category}
@@ -47,8 +53,11 @@ const DossierEspionCard: React.FC<Props> = ({ data }) => {
           className="w-24 h-24 object-contain flex-shrink-0"
         />
       </div>
+        </Link>
 
       {/* Content Section (Tablet & Desktop) */}
+              <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
+
       <div className="flex-1">
         {/* Tablet + Desktop Title & Category */}
         <div className="hidden md:block">
@@ -72,6 +81,7 @@ const DossierEspionCard: React.FC<Props> = ({ data }) => {
           {data.shortdescription}
         </p>
       </div>
+      </Link>
     </div>
   );
 };

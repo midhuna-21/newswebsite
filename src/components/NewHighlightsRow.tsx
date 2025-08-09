@@ -17,7 +17,7 @@ interface Props {
 
 const NewsHighlightRow: React.FC<Props> = ({ data }) => {
   return (
-    <section className="bg-gray-50 w-full mt-[80px] md:mt-[110px] border-t border-b border-gray-300">
+    <section className="bg-gray-50 w-full mt-[80px] lg:mt-[110px] border-t border-b border-gray-300">
       <div className="px-3 sm:px-6 py-2">
         <div
           className="flex gap-3 overflow-x-auto"

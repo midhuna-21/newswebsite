@@ -26,9 +26,8 @@ import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
     <div>
-      <div className="hidden md:block"> 
-        
-      <Navbar />
+      <div className="hidden lg:block">
+        <Navbar />
       </div>
       <NewsHighlightRow data={[businessData[0], sportsData[0], politicsData[0]]} />
       <div className="px-3 sm:px-3 lg:px-5">

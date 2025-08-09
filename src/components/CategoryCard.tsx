@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 interface NewsData {
@@ -16,6 +17,8 @@ const CategoryCard: React.FC<Props> = ({ data }) => {
   return (
     <div className="max-w-5xl mx-auto m-3">
       {/* Badge */}
+        <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
+
       <div className="flex items-center space-x-2 mb-2">
         <span className="text-red-600 text-sm font-medium">{data.category}</span>
         <span className="text-black text-sm">•</span>
@@ -29,9 +32,10 @@ const CategoryCard: React.FC<Props> = ({ data }) => {
       <p className="text-xs sm:text-sm md:text-base text-black text-justify mb-2 md:mb-0">
         {data.shortdescription}
       </p>
-
+</Link>
       {/* Date */}
       <p className="text-xs text-gray-500">Published On {data.date}</p>
+      
     </div>
   )
 }

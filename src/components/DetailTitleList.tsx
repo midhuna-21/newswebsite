@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 
@@ -19,7 +20,7 @@ const DetailTitleList: React.FC<Props> = ({ data }) => {
   if (data.length === 0) return null;
 
   return (
-    <div>
+    <div> 
       <h3 className="text-base font-semibold text-black mb-3">
         {data[0].category} {/* Assumes all items are from the same category */}
       </h3>
@@ -31,6 +32,7 @@ const DetailTitleList: React.FC<Props> = ({ data }) => {
               key={index}
               className="py-2 hover:underline transition-colors duration-200"
             >
+        <Link href={`/${item.category}/${item.slug}`} className='text-decoration-none' title={`${item.slug}`}>
               {(item.title.includes("Les points") || item.title.includes("services français")) ? (
                 <a
                   href={`/article/${item.slug}`}
@@ -42,10 +44,10 @@ const DetailTitleList: React.FC<Props> = ({ data }) => {
               ) : (
                 item.title
               )}
+          </Link>
             </li>
           ))}
         </ul>
-
       </div>
     </div>
   );

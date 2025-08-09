@@ -13,7 +13,7 @@ export default function Breadcrumb({ category, title }: BreadcrumbProps) {
     str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
   return (
-    <div className="w-full border-t border-b border-gray-200 mt-[80px] md:mt-[110px]">
+    <div className="w-full border-t border-b border-gray-200 mt-[80px] lg:mt-[110px]">
       <div className="max-w-8xl mx-auto px-4 py-3 flex items-center space-x-2 text-sm">
         <FaHome className="text-red-600 w-4 h-4" />
         <Link href="/" className="text-gray-700 underline hover:text-gray-900">
@@ -35,7 +35,15 @@ export default function Breadcrumb({ category, title }: BreadcrumbProps) {
         {title && (
           <>
             <span className="text-gray-400">/</span>
-            <span className="text-gray-600">{title}</span>
+           <span className="text-gray-600">
+  <span className="inline md:hidden">
+    {title.split(' ').slice(0, 3).join(' ')}
+  </span>
+  <span className="hidden md:inline">
+    {title}
+  </span>
+</span>
+
           </>
         )}
       </div>

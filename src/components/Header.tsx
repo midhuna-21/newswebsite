@@ -55,10 +55,17 @@ export default function Header() {
 
           {/* Logo (visible on all sizes but centered only on desktop) */}
           <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 text-center flex flex-col items-center justify-center">
-            <h1 className="text-xl sm:text-2xl font-black font-serif leading-none whitespace-nowrap">
+          <Link
+        href='/'
+        className="text-decoration-none"
+        title='index'
+      >
+
+            <p className="text-xl sm:text-2xl font-black font-serif leading-none whitespace-nowrap">
               Le Canard <br className="sm:hidden" />
               <span className="sm:ml-2 font-bold">enchaîné</span>
-            </h1>
+            </p>
+      </Link>
             <p className="text-[11px] sm:text-sm text-red-600 mt-1 md:block hidden">
               Journal satirique paraissant le mercredi et sur Internet
             </p>

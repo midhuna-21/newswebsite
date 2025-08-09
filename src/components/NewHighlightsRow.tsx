@@ -27,43 +27,34 @@ const NewsHighlightRow: React.FC<Props> = ({ data }) => {
           }}
         >
           {data.slice(0, 3).map((item, index) => (
-            <Link
-              key={item.slug} // ✅ Moved here
-              href={`/${item.category}/${item.slug}`}
-              className="text-decoration-none"
-              title={item.slug}
-            >    <div
+           <Link
+    key={item.slug} // ✅ Moved here
+    href={`/${item.category}/${item.slug}`}
+    className="text-decoration-none"
+    title={item.slug}
+  >    <div
               key={index}
               className="min-w-[240px] flex items-start space-x-2 group"
             >
 
-                <div className="flex-shrink-0">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={56}
-                    height={56}
-                    className="rounded-md object-cover w-[56px] h-[56px] sm:w-[64px] sm:h-[64px]"
-                  />
-                </div>
-
-                <div className="flex flex-col flex-1" >
-                  <p className="uppercase" style={{
-                    color: '#e01a00',
-                    fontSize: '18px',
-                    fontFamily:
-                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",
-                  }}>
-                    {item.category}
-                  </p>
-                  <p className="text-sm text-black" style={{
-                    fontSize: '16px',
-                    fontFamily:
-                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",
-                  }}>{item.title}</p>
-                </div>
+              <div className="flex-shrink-0">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={56}
+                  height={56}
+                  className="rounded-md object-cover w-[56px] h-[56px] sm:w-[64px] sm:h-[64px]"
+                />
               </div>
-            </Link>
+
+              <div className="flex flex-col flex-1" >
+                <p className="text-sm text-red-700 group-hover:underline leading-tight" >
+                  {item.category}
+                </p>
+                <p className="text-sm text-black">{item.title}</p>
+              </div>
+            </div>
+              </Link>
           ))}
         </div>
       </div>

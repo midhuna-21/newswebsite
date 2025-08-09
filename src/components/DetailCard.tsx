@@ -11,28 +11,29 @@ interface NewsData {
     image:string;
     date:string;
 }
+
 interface Props {
     data:NewsData;
 }
+
 const DetailCard: React.FC<Props> = ({ data }) => {
   return (
     <div
-      className="mx-auto text-center"
-      style={{ maxWidth: '350px' }} // limit card width
+      className="mx-auto"
+      style={{ maxWidth: '350px' }}
     >
       <Link
         href={`/${data.category}/${data.slug}`}
         className="text-decoration-none"
         title={data.slug}
       >
-        {/* Image */}
-        <div className="mb-2">
+        <div className="mb-2 relative w-full h-56 overflow-hidden bg-gray-100">
           <Image
             src={data.image}
             alt={data.title}
-            height={200} // smaller height
-            width={200}  // smaller width
-            className="w-full object-contain"
+            fill
+            sizes="(max-width: 350px) 100vw, 350px"
+            className="object-cover"
           />
         </div>
 
@@ -49,6 +50,5 @@ const DetailCard: React.FC<Props> = ({ data }) => {
     </div>
   );
 };
-
 
 export default DetailCard;

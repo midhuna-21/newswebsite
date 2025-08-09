@@ -68,11 +68,11 @@ const Footer = () => {
                       Entertainment
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/lifestyle" className="text-gray-600  hover:underline transition-colors duration-200">
                       Lifestyle
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -84,27 +84,27 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/about" className="text-gray-600  hover:underline transition-colors duration-200">
+                  <Link href="#" className="text-gray-600  hover:underline transition-colors duration-200">
                     Our Company
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-600  hover:underline transition-colors duration-200">
+                  <Link href="#" className="text-gray-600  hover:underline transition-colors duration-200">
                     Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/team" className="text-gray-600  hover:underline transition-colors duration-200">
+                  <Link href="#" className="text-gray-600  hover:underline transition-colors duration-200">
                     Our Team
                   </Link>
                 </li>
                 <li>
-                  <Link href="/editorial-policy" className="text-gray-600  hover:underline transition-colors duration-200">
+                  <Link href="#" className="text-gray-600  hover:underline transition-colors duration-200">
                     Editorial Policy & Standards
                   </Link>
                 </li>
                 <li>
-                  <Link href="/correction-policy" className="text-gray-600  hover:underline transition-colors duration-200">
+                  <Link href="#" className="text-gray-600  hover:underline transition-colors duration-200">
                     Correction Policy
                   </Link>
                 </li>

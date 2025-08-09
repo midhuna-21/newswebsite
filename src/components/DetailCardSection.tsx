@@ -53,32 +53,39 @@ const DetailCardSection: React.FC<Props> = ({ data }) => {
 
     return (
         <>
-            {/* Scroll Container */}
-            <div
-                ref={scrollRef}
-                className="flex mt-12 overflow-x-auto gap-4 scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 snap-x snap-mandatory"
-            >
-                {data.map((item, index) => (
-                  <div
-    key={`${item.slug}-${index}`}
-    className="flex-shrink-0 snap-start 
-               w-full md:w-1/2 lg:w-1/3 xl:w-1/4
-               min-w-full md:min-w-[50%] lg:min-w-[33.3333%] xl:min-w-[25%]"
->
-    <DetailCard data={item} />
-</div>
-
-                ))}
+            {/* Scroll Container with spacing */}
+            <div className="mt-12 mb-6">
+                <div
+                    ref={scrollRef}
+                    className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 snap-x snap-mandatory pb-4"
+                    style={{ 
+                        scrollbarGutter: 'stable',
+                    }}
+                >
+                    {data.map((item, index) => (
+                        <div
+                            key={`${item.slug}-${index}`}
+                            className="flex-shrink-0 snap-start"
+                            style={{ 
+                                width: 'calc(25% - 18px)', // 4 items per row with gap
+                                minWidth: '280px' // minimum width for smaller screens
+                            }}
+                        >
+                            <DetailCard data={item} />
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {/* Pagination Dots */}
-            <div className="flex justify-center mt-4 gap-2">
+            <div className="flex justify-center gap-2 mt-4">
                 {Array.from({ length: totalPages }).map((_, i) => (
                     <button
                         key={i}
                         onClick={() => scrollToPage(i)}
-                        className={`w-3 h-3 rounded-full ${currentPage === i ? 'bg-red-500' : 'bg-gray-400'
-                            }`}
+                        className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                            currentPage === i ? 'bg-red-500' : 'bg-gray-400 hover:bg-gray-500'
+                        }`}
                     ></button>
                 ))}
             </div>

@@ -159,8 +159,8 @@ export default async function DetailPage({ params }: DetailPageProps) {
 
         <div className="px-3 sm:px-3 lg:px-5">
         <DetailFristSection data={article} />
-        <DetailSecondSection data={[data[1], data[2], data[3]]} />
-        <DetailCardSection data={[data[4], data[5], data[5],data[7],data[8],data[9]]} />
+        <DetailSecondSection data={[data[2], data[3], data[4]]} />
+        <DetailCardSection data={[data[5], data[6], data[7],data[8],data[14],data[13]]} />
       </div>
     </div>
 

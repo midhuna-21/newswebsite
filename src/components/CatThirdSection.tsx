@@ -32,7 +32,7 @@ const CatThirdSection: React.FC<Props> = ({ data }) => {
 
         {/* Left: Category cards */}
         <div className="flex-1 md:pr-7 md:border-r border-gray-200">
-          {data.slice(0, 22).map((item, index) =>
+          {data.slice(8, 22).map((item, index) =>
             index % 2 === 0 ? (
               <CategoryCard key={item.slug || index} data={item} />
             ) : (
@@ -43,11 +43,11 @@ const CatThirdSection: React.FC<Props> = ({ data }) => {
 
         {/* Right: Trump card */}
         <div className="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 space-y-16">
-  <DetailTitleList data={[data[1], data[2], data[3], data[0], data[5]]} />
-  <TrumpUltimatumCard data={data[21]} />
-  <FillonCard data={data[21]} />
-  <CatSubscribe />
-</div>
+          <DetailTitleList data={[data[1], data[2], data[3], data[0], data[5]]} />
+          <TrumpUltimatumCard data={data[6]} />
+          <FillonCard data={data[7]} />
+          <CatSubscribe />
+        </div>
 
       </div>
     </div>

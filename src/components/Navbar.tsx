@@ -15,7 +15,11 @@ const NavItems = [
 
 export default function Navbar() {
   return (
-<div className="w-full fixed top-[70px] z-40 border-b border-gray-300 bg-amber-800 text-[16px] font-bold">
+<div className="w-full fixed top-[70px] z-40 border-b border-gray-300 text-[18px] p-1"  style={{
+        backgroundColor: '#4f4f48',
+        fontFamily:
+          "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",
+      }}>
 
       <div className="flex px-3 py-2 gap-12 whitespace-nowrap">
         {NavItems.map((item) => (
@@ -23,7 +27,8 @@ export default function Navbar() {
             key={item.category}
             href={`/${item.category}`}
             title={item.category}
-            className="text-white no-underline whitespace-nowrap flex-shrink-0"
+          className="text-white hover:underline whitespace-nowrap tracking-wide"
+
           >
             {item.label}
           </Link>

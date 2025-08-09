@@ -40,7 +40,10 @@ const GazaArticleCard: React.FC<Props> = ({ data }) => {
 
         {/* Category */}
         <div className="text-xs sm:text-sm mb-2">
-          <span className="text-red-600 font-semibold">{data.category}</span>
+        <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
+                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
+          {data.category}
+        </span>
         </div>
 
         {/* Title */}

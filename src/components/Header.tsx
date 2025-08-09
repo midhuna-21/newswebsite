@@ -25,27 +25,27 @@ export default function Header() {
   ];
 
   return (
-      <header style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            zIndex: 999,
-            backgroundColor: '#fff',
-            color: '#000',
-            height: '70px',
-            display: 'flex',
-            alignItems: 'center',
-            transition: 'all 0.3s ease',
-          }}>
+    <header style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      zIndex: 999,
+      backgroundColor: '#fff',
+      color: '#000',
+      height: '70px',
+      display: 'flex',
+      alignItems: 'center',
+      transition: 'all 0.3s ease',
+    }}>
       <div className="relative w-full py-3 lg:py-6 flex items-center justify-between px-4 sm:px-6">
 
         <div className="flex items-center space-x-3">
           {/* MENU Button */}
           <button
             onClick={() => setMenuOpen(true)}
-          className="flex flex-col items-center space-y-1 text-red-600 text-xs cursor-pointer md:pl-2 lg:hidden"
-  >
+            className="flex flex-col items-center space-y-1 text-red-600 text-xs cursor-pointer md:pl-2 lg:hidden"
+          >
             <div className="space-y-1">
               <span className="block w-6 h-0.5 bg-red-600"></span>
               <span className="block w-6 h-0.5 bg-red-600"></span>
@@ -55,17 +55,17 @@ export default function Header() {
 
           {/* Logo (visible on all sizes but centered only on desktop) */}
           <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 text-center flex flex-col items-center justify-center">
-          <Link
-        href='/'
-        className="text-decoration-none"
-        title='index'
-      >
+            <Link
+              href='/'
+              className="text-decoration-none"
+              title='index'
+            >
 
-            <p className="text-xl sm:text-2xl font-black font-serif leading-none whitespace-nowrap">
-              Le Canard <br className="sm:hidden" />
-              <span className="sm:ml-2 font-bold">enchaîné</span>
-            </p>
-      </Link>
+              <p className="text-xl sm:text-2xl font-black font-serif leading-none whitespace-nowrap">
+                Le Canard <br className="sm:hidden" />
+                <span className="sm:ml-2 font-bold">enchaîné</span>
+              </p>
+            </Link>
             <p className="text-[11px] sm:text-sm text-red-600 mt-1 md:block hidden">
               Journal satirique paraissant le mercredi et sur Internet
             </p>
@@ -90,11 +90,10 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-    <aside
-  className={`fixed top-0 left-0 w-full sm:w-[320px] h-full bg-[#f4f2ef] z-50 overflow-y-auto shadow-md border-r border-gray-300 transform transition-transform duration-300 ${
-    menuOpen ? 'translate-x-0' : '-translate-x-full'
-  }`}
->
+        <aside
+          className={`fixed top-0 left-0 w-full sm:w-[320px] h-full bg-[#f4f2ef] z-50 overflow-y-auto shadow-md border-r border-gray-300 transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : '-translate-x-full'
+            }`}
+        >
 
           <div className="flex h-full">
             {/* Left Column: FERMER */}

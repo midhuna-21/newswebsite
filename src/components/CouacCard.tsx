@@ -24,9 +24,10 @@ const CouacCard: React.FC<Props> = ({ data }) => {
 
       <div className="flex items-center gap-3 mb-2">
         <div>
-          <p className="text-xs text-red-600 uppercase font-semibold">
-            {data.category}
-          </p>
+          <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
+                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
+          {data.category}
+        </span>
         </div>
       </div>
 

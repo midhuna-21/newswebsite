@@ -29,10 +29,12 @@ const HeroSection: React.FC<Props> = ({ data }) => {
       {/* first section */}
       <div className="w-full bg-white mt-8">
         <div className="text-center px-4 py-4">
-          <h3 className="text-red-600 font-bold text-sm sm:text-base inline-block border-b-2 border-red-600">
+          <h3 className="text-red-600 font-bold text-sm sm:text-base inline-block border-b-2 border-red-600" style={{  fontFamily:
+                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
             Le plan du gouvernement pour réveiller la natalité
           </h3>
-          <h1 className="text-black font-extrabold text-2xl sm:text-3xl md:text-4xl mt-2">
+          <h1 className="text-black font-extrabold text-2xl sm:text-3xl md:text-4xl mt-2" style={{  fontFamily:
+                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
             Macron lance un avis à la copulation !
           </h1>
         </div>

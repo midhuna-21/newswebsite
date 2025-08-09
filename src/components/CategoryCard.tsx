@@ -20,7 +20,10 @@ const CategoryCard: React.FC<Props> = ({ data }) => {
         <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
 
       <div className="flex items-center space-x-2 mb-2">
-        <span className="text-red-600 text-sm font-medium">{data.category}</span>
+       <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
+                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
+          {data.category}
+        </span>
         <span className="text-black text-sm">•</span>
       </div>
 

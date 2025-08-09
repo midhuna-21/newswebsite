@@ -25,7 +25,10 @@ const CouacWithoutImgaeCard:React.FC<Props>=({data}) => {
       
         <div>
           {/* <h2 className="text-lg font-bold text-black leading-tight">Couac</h2> */}
-          <p className="text-xs text-red-600 uppercase font-semibold">{data.category}</p>
+         <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
+                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
+          {data.category}
+        </span>
         </div>
       </div>
 

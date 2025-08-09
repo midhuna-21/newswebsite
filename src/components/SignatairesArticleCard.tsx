@@ -23,9 +23,10 @@ const SignatairesArticleCard: React.FC<Props> = ({ data }) => {
       <div className="bg-white p-3 sm:p-4">
         {/* Category */}
         <div className="flex items-center mb-2">
-          <span className="text-red-600 font-bold text-xs sm:text-sm uppercase tracking-wide">
-            {data.category}
-          </span>
+         <span className="text-red-600 sm:text-sm uppercase tracking-wide" style={{fontWeight:500, fontSize:'20px',  fontFamily:
+                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
+          {data.category}
+        </span>
           <span className="ml-2 text-red-600">•</span>
         </div>
 

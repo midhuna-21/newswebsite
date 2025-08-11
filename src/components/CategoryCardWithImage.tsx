@@ -62,7 +62,7 @@ const CategoryCardWithImage: React.FC<Props> = ({ data }) => {
               src={data.image}
               alt={data.title}
               fill
-              className="object-cover rounded"
+              className="object-cover"
             />
           </div>
 

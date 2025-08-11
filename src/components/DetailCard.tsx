@@ -3,17 +3,17 @@ import Link from 'next/link';
 import React from 'react'
 
 interface NewsData {
-    slug:string;
-    title:string;
-    category:string;
-    shortdescription:string;
-    description:string;
-    image:string;
-    date:string;
+  slug: string;
+  title: string;
+  category: string;
+  shortdescription: string;
+  description: string;
+  image: string;
+  date: string;
 }
 
 interface Props {
-    data:NewsData;
+  data: NewsData;
 }
 
 const DetailCard: React.FC<Props> = ({ data }) => {
@@ -36,14 +36,10 @@ const DetailCard: React.FC<Props> = ({ data }) => {
             className="object-cover"
           />
         </div>
-
-        {/* Category */}
-        <div className="text-sm text-red-600 hover:underline font-semibold">
+        <div className="text-sm lg:text-lg  text-red-600 hover:underline font-custom" style={{fontWeight:900}}>
           {data.title}
-        </div>
-
-        {/* Title */}
-        <h2 className="text-sm text-black mt-1 font-medium line-clamp-2">
+        </div>  
+        <h2 className="text-base sm:text-sm md:text-sm lg:text-lg text-black mt-1 font-medium line-clamp-2 font-custom">
           {data.shortdescription}
         </h2>
       </Link>

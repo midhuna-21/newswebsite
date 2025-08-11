@@ -27,10 +27,7 @@ interface Props {
 const CatThirdSection: React.FC<Props> = ({ data }) => {
   return (
     <div className="max-w-7xl mx-auto mt-8 px-3">
-      {/* Two-column layout */}
       <div className="flex flex-col lg:flex-row gap-6">
-
-        {/* Left: Category cards */}
         <div className="flex-1 md:pr-7 md:border-r border-gray-200">
           {data.slice(8, 22).map((item, index) =>
             index % 2 === 0 ? (
@@ -41,7 +38,6 @@ const CatThirdSection: React.FC<Props> = ({ data }) => {
           )}
         </div>
 
-        {/* Right: Trump card */}
         <div className="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 space-y-16">
           <DetailTitleList data={[data[1], data[2], data[3], data[0], data[5]]} />
           <TrumpUltimatumCard data={data[6]} />

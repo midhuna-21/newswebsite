@@ -37,7 +37,7 @@ const CollectorsSection: React.FC<Props> = ({ data }) => {
         setPagesCount(Math.ceil(data.length / 2));
         setIsMobileScroll(true);
       } else {
-        setCardsPerPage(data.length); // everything fits, no scroll dots
+        setCardsPerPage(data.length); 
         setPagesCount(0);
         setIsMobileScroll(false);
       }

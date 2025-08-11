@@ -59,11 +59,11 @@ export default async function CategoryPage({
 
   return (
     <div>
-      <div className="hidden lg:block"> 
-              
-            <Navbar />
-            </div>
-    <Breadcrumb category={category} />
+      <div className="hidden lg:block">
+
+        <Navbar />
+      </div>
+      <Breadcrumb category={category} />
 
       <div className="px-3 sm:px-3 lg:px-5">
         <div className='border-b border-gray-200'>

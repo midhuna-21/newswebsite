@@ -21,12 +21,12 @@ const PrisesAndCouacSection: React.FC<Props> = ({ data }) => {
   return (
     <section className="w-full bg-white mt-16">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mx-auto items-start">
-        {/* Left: Prises de bec (6 columns) */}
+        {/* Left */}
         <div className="md:col-span-6">
           <PrisesDeBecCard data={data[0]} />
         </div>
 
-        {/* Right: 2 Couac Cards side-by-side (3 columns each) */}
+        {/* Right */}
         <div className="md:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           <CouacCard data={data[1]} />
           <CouacCard data={data[2]} />

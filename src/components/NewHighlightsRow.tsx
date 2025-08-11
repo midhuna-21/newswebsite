@@ -26,35 +26,39 @@ const NewsHighlightRow: React.FC<Props> = ({ data }) => {
             scrollbarColor: '#d1d5db transparent',
           }}
         >
-          {data.slice(0, 3).map((item, index) => (
-           <Link
-    key={item.slug} // ✅ Moved here
-    href={`/${item.category}/${item.slug}`}
-    className="text-decoration-none"
-    title={item.slug}
-  >    <div
+          {data.slice(0, 4).map((item, index) => (
+            <Link
+              key={item.slug}
+              href={`/${item.category}/${item.slug}`}
+              className="text-decoration-none"
+              title={item.slug}
+            >    <div
               key={index}
               className="min-w-[240px] flex items-start space-x-2 group"
             >
 
-              <div className="flex-shrink-0">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={56}
-                  height={56}
-                  className="rounded-md object-cover w-[56px] h-[56px] sm:w-[64px] sm:h-[64px]"
-                />
-              </div>
+                <div className="flex-shrink-0">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={56}
+                    height={56}
+                    className="rounded-md object-cover w-[56px] h-[56px] sm:w-[64px] sm:h-[64px]"
+                  />
+                </div>
 
-              <div className="flex flex-col flex-1" >
-                <p className="text-sm text-red-700 group-hover:underline leading-tight" >
-                  {item.category}
-                </p>
-                <p className="text-sm text-black">{item.title}</p>
+                <div className="flex flex-col flex-1">
+                  <p
+                    className="text-lg text-red-600 leading-tight font-custom uppercase"
+                    style={{ fontWeight: 400 }}
+                  >
+                    {item.category}
+                  </p>
+                  <p className="text-lg text-black font-custom leading-tight">{item.title}</p>
+                </div>
+
               </div>
-            </div>
-              </Link>
+            </Link>
           ))}
         </div>
       </div>

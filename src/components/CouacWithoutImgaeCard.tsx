@@ -18,14 +18,14 @@ interface Props {
 const CouacWithoutImgaeCard:React.FC<Props>=({data}) => {
   return (
     <div className="w-full max-w-md mx-auto bg-white">
-      {/* Header */}
         <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
 
       <div className="flex items-center gap-3 mb-2">
       
         <div>
-          {/* <h2 className="text-lg font-bold text-black leading-tight">Couac</h2> */}
-          <p className="text-xs text-red-600 uppercase">{data.category}</p>
+        <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+            {data.category}
+          </span>
         </div>
       </div>
 
@@ -35,11 +35,15 @@ const CouacWithoutImgaeCard:React.FC<Props>=({data}) => {
 
       {/* Article Title & Summary */}
       <div>
-     <p className="text-lg lg:text-xl font-bold hover:underline text-gray-900 mb-2">
-          {data.title}
+     <p
+          className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
+          style={{ fontWeight: 900 }}
+        >   {data.title}
         </p>
-       <p className="text-xs sm:text-sm md:text-base text-black text-justify mb-2 md:mb-0">
-        {data.shortdescription}
+       <p
+                    className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
+                    style={{ fontWeight: 400 }}
+                > {data.shortdescription}
       </p>
       </div>
       </Link>

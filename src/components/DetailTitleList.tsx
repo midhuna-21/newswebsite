@@ -21,9 +21,9 @@ const DetailTitleList: React.FC<Props> = ({ data }) => {
 
   return (
     <div> 
-      <h3 className="text-base font-semibold text-black mb-3">
-        {data[0].category} {/* Assumes all items are from the same category */}
-      </h3>
+     <span className="text-black text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+        {data[0].category} 
+      </span>
       <div className="w-full max-w-md mx-auto border-2 border-red-600 p-5">
 
         <ul className="text-sm text-black divide-y divide-gray-200">
@@ -32,18 +32,14 @@ const DetailTitleList: React.FC<Props> = ({ data }) => {
               key={index}
               className="py-2 hover:underline transition-colors duration-200"
             >
-        <Link href={`/${item.category}/${item.slug}`} className='text-decoration-none' title={`${item.slug}`}>
-              {(item.title.includes("Les points") || item.title.includes("services français")) ? (
-                <a
-                  href={`/article/${item.slug}`}
-                  className="underline flex items-center justify-between"
-                >
+        <Link href={`/${item.category}/${item.slug}`} title={`${item.slug}`}
+            
+                  className="text-decoration-none hover:underline flex items-center justify-between text-base sm:text-sm md:text-sm lg:text-lg font-custom"
+                style={{ fontWeight: 400 }}>
+                
+                 
                   {item.title}
-                  <FaChevronRight className="text-xs" />
-                </a>
-              ) : (
-                item.title
-              )}
+                
           </Link>
             </li>
           ))}

@@ -9,10 +9,11 @@ const Headline: React.FC<Props> = ({ title }) => {
     <div className="flex items-center justify-center w-full">
       <div className="flex-grow border-t-2 border-red-600"></div>
       <h2
-        className="text-red-600 text-lg sm:text-xl md:text-2xl px-3 font-Semibold tracking-wide whitespace-nowrap"
+        className="text-red-600 text-2xl sm:text-3xl md:text-4xl px-3 tracking-wide whitespace-nowrap"
+        style={{fontWeight:900}}
       >
         <span
-          className="relative"
+          className="relative font-new"
         >
           {title}
         </span>

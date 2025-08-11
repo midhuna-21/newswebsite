@@ -39,9 +39,7 @@ export default function Header() {
       transition: 'all 0.3s ease',
     }}>
       <div className="relative w-full py-3 lg:py-6 flex items-center justify-between px-4 sm:px-6">
-
         <div className="flex items-center space-x-3">
-          {/* MENU Button */}
           <button
             onClick={() => setMenuOpen(true)}
             className="flex flex-col items-center space-y-1 text-red-600 text-xs cursor-pointer md:pl-2 lg:hidden"
@@ -53,7 +51,6 @@ export default function Header() {
             </div>
           </button>
 
-          {/* Logo (visible on all sizes but centered only on desktop) */}
           <div className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 text-center flex flex-col items-center justify-center">
             <Link
               href='/'
@@ -72,15 +69,14 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Right - Subscribe & Login */}
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <button className="bg-yellow-400 text-black rounded-full px-3 py-1.5 text-xs sm:text-sm font-semibold hover:bg-yellow-500 whitespace-nowrap">
+          <button className="bg-yellow-400 text-black rounded-full px-3 py-1.5 text-sm sm:text-lg font-custom hover:bg-yellow-500 whitespace-nowrap" style={{fontWeight:900}}>
             S’abonner
           </button>
 
           <Link href="#" className="flex items-center space-x-1 text-black hover:underline text-xs sm:text-sm">
             <User className="w-4 h-4 text-red-600" />
-            <span className="hidden sm:inline">Se connecter</span>
+            <span className="hidden sm:inline text-lg font-custom" style={{fontWeight:300}}>Se connecter</span>
           </Link>
 
           <button>

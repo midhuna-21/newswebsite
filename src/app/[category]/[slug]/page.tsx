@@ -1,4 +1,3 @@
-import React from 'react';
 import { notFound } from 'next/navigation';
 import businessData from '../../../../public/data/business.json';
 import technologyData from '../../../../public/data/technology.json';
@@ -6,40 +5,12 @@ import sportsData from '../../../../public/data/sports.json';
 import healthData from '../../../../public/data/health.json';
 import politicsData from '../../../../public/data/politics.json';
 import scienceData from '../../../../public/data/science.json';
-import entertainmentData from '../../../../public/data/entertainment.json'
+import entertainmentData from '../../../../public/data/entertainment.json';
 import educationData from '../../../../public/data/education.json';
 import { Metadata } from 'next';
-import DetailFristSection from '@/components/DetailFristSection';
-import DetailCardSection from '@/components/DetailCardSection';
-import Breadcrumb from '@/components/Breadcrumb';
-import DetailSecondSection from '@/components/DetailSecondSection';
 import Navbar from '@/components/Navbar';
-
-
-
-export async function generateStaticParams() {
-  const allData = [
-    { category: 'politics', articles: politicsData },
-    { category: 'business', articles: businessData },
-    { category: 'technology', articles: technologyData },
-    { category: 'sports', articles: sportsData },
-    { category: 'science', articles: scienceData },
-    { category: 'health', articles: healthData },
-    { category: 'entertainment', articles: entertainmentData },
-    { category: 'education', articles: educationData },
-
-  ];
-
-  const params = allData.flatMap(({ category, articles }) =>
-    articles.map((article) => ({
-      category,
-      slug: article.slug,
-    }))
-  );
-
-  return params;
-}
-
+import DetailSection from '../../../components/DetailSection';
+import Breadcrumb from '@/components/Breadcrumb';
 
 interface NewsItem {
   category: string;
@@ -49,10 +20,6 @@ interface NewsItem {
   image: string;
   slug: string;
   date: string;
-}
-
-interface DetailPageProps {
-  params: Promise<{ category: string, slug: string }>;
 }
 
 const allData: Record<string, NewsItem[]> = {
@@ -66,21 +33,29 @@ const allData: Record<string, NewsItem[]> = {
   education: educationData,
 };
 
-export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
-  const { category, slug } = await params;
+export async function generateStaticParams() {
+  const allDataSets = [
+    { category: 'politics', articles: politicsData },
+    { category: 'business', articles: businessData },
+    { category: 'technology', articles: technologyData },
+    { category: 'sports', articles: sportsData },
+    { category: 'science', articles: scienceData },
+    { category: 'health', articles: healthData },
+    { category: 'entertainment', articles: entertainmentData },
+    { category: 'education', articles: educationData },
+  ];
 
-  const allDataMap: Record<string, NewsItem[]> = {
-    politics: politicsData,
-    business: businessData,
-    technology: technologyData,
-    sports: sportsData,
-    science: scienceData,
-    health: healthData,
-    entertainment: entertainmentData,
-    education: educationData,
-  };
+  return allDataSets.flatMap(({ category, articles }) =>
+    articles.map((article) => ({
+      category,
+      slug: article.slug,
+    }))
+  );
+}
 
-  const articles = allDataMap[category] || [];
+export async function generateMetadata({ params }: { params: { category: string; slug: string } }): Promise<Metadata> {
+  const { category, slug } = params;
+  const articles = allData[category] || [];
   const article = articles.find((a) => a.slug === slug);
 
   const siteUrl = 'https://www.nystatenews.org/';
@@ -94,7 +69,6 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
     };
   }
 
-
   return {
     title: article.title,
     description: article.shortdescription,
@@ -105,14 +79,7 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
       description: article.shortdescription,
       url: currentUrl,
       siteName: 'nystatenews',
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
-      ],
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: article.title }],
       locale: 'en_US',
       type: 'article',
     },
@@ -127,43 +94,24 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
   };
 }
 
-
-export default async function DetailPage({ params }: DetailPageProps) {
-  const { category, slug } = await params;
+export default async function DetailPage({ params }: { params: { category: string; slug: string } }) {
+  const { category, slug } = params;
   const data = allData[category?.toLowerCase()];
-
   if (!data) return notFound();
 
-  const article = data.find(item => item.slug === slug);
+  const article = data.find((item) => item.slug === slug);
   if (!article) {
     return <div className="p-4">No article found for slug {slug}</div>;
   }
 
-  //   if (slug === 'charges-dropped-wanda-vazquez-political-targeting') {
-  //     return (
-  //       <main>
-
-
-  //         <StaticDetailPage />
-  //       </main>
-  //     );
-  //   }
-
   return (
     <div>
-      <div className="hidden lg:block"> 
-              
-            <Navbar />
-            </div>
+      <div className="hidden lg:block">
+        <Navbar />
+      </div>
       <Breadcrumb category={category} title={article.title} />
 
-        <div className="px-3 sm:px-3 lg:px-5">
-        <DetailFristSection data={article} />
-        <DetailSecondSection data={[data[2], data[3], data[4]]} />
-        <DetailCardSection data={[data[5], data[6], data[7],data[8],data[14],data[13]]} />
-      </div>
+      <DetailSection article={article} relatedData={data} category={category} />
     </div>
-
-
   );
 }

@@ -23,9 +23,9 @@ const DossierReadingList: React.FC<Props> = ({ data }) => {
     <div className="w-full max-w-md mx-auto">
 
       {/* Category heading */}
-      <h3 className="text-sm sm:text-base md:text-base lg:text-lg font-semibold text-black mb-3">
-        {data[0].category}
-      </h3>
+     <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+            {data[0].category}
+          </span>   
 
       {/* Reading list */}
       <ul className="text-xs sm:text-sm md:text-sm lg:text-base text-black border-t border-gray-200 divide-y divide-gray-200">
@@ -35,7 +35,7 @@ const DossierReadingList: React.FC<Props> = ({ data }) => {
             key={index}
             className="py-2 transition-colors duration-200"
           >
-            <Link href={`/${item.category}/${item.slug}`} className='text-decoration-none' title={`${item.slug}`}>
+            <Link href={`/${item.category}/${item.slug}`} className='text-decoration-none text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom' title={`${item.slug}`}>
 
               {item.title}
 

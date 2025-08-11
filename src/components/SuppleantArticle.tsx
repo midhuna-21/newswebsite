@@ -20,16 +20,19 @@ const SuppleantArticle: React.FC<Props> = ({ data }) => {
     <div className="max-w-md mx-auto">
          <Link href={`/${data.category}/${data.slug}`} className="text-decoration-none" title={data.slug}>
       {/* Title with bullet */}
-      <h3 className="flex items-start text-sm sm:text-base md:text-base lg:text-[17px] font-bold mb-2">
+      <div className="flex items-start ">
         <span className="text-red-600 text-base sm:text-lg leading-none mr-2 mt-[6px]">•</span>
-        <span className="hover:underline">{data.title}</span>
-      </h3>
+        <span className="hover:underline font-custom text-base sm:text-lg md:text-lg lg:text-xl" style={{fontWeight:900}}>{data.title}</span>
+      </div>
 
       {/* Content */}
-      <p className="text-xs sm:text-sm md:text-sm lg:text-[16px] text-black leading-relaxed">
-        {data.shortdescription}
-      </p>
-
+   
+    <p
+                    className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
+                    style={{ fontWeight: 400 }}
+                >
+                    {data.shortdescription}
+                </p>
       {/* Ellipsis link */}
       <p className="mt-2 text-xs sm:text-sm md:text-sm lg:text-[16px]">
         <span className="text-black">[</span>

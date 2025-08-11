@@ -20,12 +20,12 @@ const DucanardSection:React.FC<Props> = ({data}) => {
     <section className=" bg-white px-4 md:px-8 py-5 border-t-2  border-red-600">
     
       <div className="max-w-5xl flex flex-col md:flex-row gap-6 items-start mx-auto mt-5">
-        {/* Left: Main article */}
+        {/* Left */}
         <div className="flex-1">
           <DossierEspionCard data={data[4]}/>
         </div>
 
-        {/* Right: Reading list */}
+        {/* Right */}
         <div className="w-full md:w-[320px]">
           <DossierReadingList data={[data[1],data[2],data[3],data[0],data[5]]}/>
         </div>

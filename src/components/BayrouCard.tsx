@@ -31,7 +31,8 @@ const BayrouCard: React.FC<Props> = ({ data }) => {
           />
         </div>
       </div>
-      <p className="mt-4 text-center text-red-600  hover:underline font-bold leading-snug text-lg">
+      <p className="mt-4 text-center text-red-600  hover:underline leading-snug text-lg lg:text-xl font-custom"
+          style={{ fontWeight: 900 }}>
         {data?.title}
       </p>
       </Link>

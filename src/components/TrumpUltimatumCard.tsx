@@ -33,7 +33,7 @@ const TrumpUltimatumCard: React.FC<Props> = ({ data }) => {
           justifyContent: 'center',
         }}
       >
-        <h2 className="text-sm font-medium leading-snug text-black uppercase line-clamp-5">
+        <h2 className="text-base sm:text-sm md:text-sm lg:text-lg  leading-snug text-black uppercase line-clamp-5 font-custom ">
           {data?.title}
         </h2>
       </div>

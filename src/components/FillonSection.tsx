@@ -58,7 +58,7 @@ const FillonSection: React.FC<Props> = ({ data }) => {
 
   return (
     <section className="w-full bg-white mt-16">
-      <Headline title="TECHNOLOGY"/>
+      <Headline title="TECHNOLOGY" />
 
       {/* Scrollable container for mobile/tablet */}
       <div
@@ -87,9 +87,8 @@ const FillonSection: React.FC<Props> = ({ data }) => {
           {Array.from({ length: pagesCount }).map((_, index) => (
             <span
               key={index}
-              className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-                index === activeIndex ? "bg-red-500" : "bg-gray-400"
-              }`}
+              className={`h-2 w-2 rounded-full transition-colors duration-300 ${index === activeIndex ? "bg-red-500" : "bg-gray-400"
+                }`}
             ></span>
           ))}
         </div>

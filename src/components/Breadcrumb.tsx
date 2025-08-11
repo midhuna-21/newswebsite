@@ -16,34 +16,31 @@ export default function Breadcrumb({ category, title }: BreadcrumbProps) {
     <div className="w-full border-t border-b border-gray-200 mt-[80px] lg:mt-[120px]">
       <div className="max-w-8xl mx-auto px-4 py-3 flex items-center space-x-2 text-sm">
         <FaHome className="text-red-600 w-4 h-4" />
-        <Link href="/" className="text-gray-700 underline hover:text-gray-900">
+        <Link href="/" className="text-gray-700 hover:text-gray-900 font-custom text-sm">
           Accueil
         </Link>
-
         {category && (
           <>
             <span className="text-gray-400">/</span>
             <Link
               href={`/${category}`}
-              className="text-gray-700 underline hover:text-gray-900"
+              className="text-gray-700 hover:text-gray-900 font-custom text-sm"
             >
               {capitalize(category)}
             </Link>
           </>
         )}
-
         {title && (
           <>
             <span className="text-gray-400">/</span>
-           <span className="text-gray-600">
-  <span className="inline md:hidden">
-    {title.split(' ').slice(0, 3).join(' ')}
-  </span>
-  <span className="hidden md:inline">
-    {title}
-  </span>
-</span>
-
+            <span className="text-gray-600 font-custom text-sm">
+              <span className="inline md:hidden">
+                {title.split(' ').slice(0, 3).join(' ')}
+              </span>
+              <span className="hidden md:inline">
+                {title}
+              </span>
+            </span>
           </>
         )}
       </div>

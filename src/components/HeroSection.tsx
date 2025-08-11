@@ -7,6 +7,7 @@ import Headline from './Headline';
 import GazaArticleCard from './GazaArticleCard';
 import CastexArticleCard from './CastexArticleCard';
 import SignatairesArticleCard from './SignatairesArticleCard';
+import ArticleFirst from './ArticleFrist';
 
 interface NewsData {
   category: string;
@@ -28,20 +29,19 @@ const HeroSection: React.FC<Props> = ({ data }) => {
 
       {/* first section */}
       <div className="w-full bg-white mt-8">
-        <div className="text-center px-4 py-4">
-          <h3 className="text-red-600 font-bold text-sm sm:text-base inline-block border-b-2 border-red-600" style={{  fontFamily:
-                      "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
+        {/* <div className="text-center px-4 py-4">
+          <h3 className="text-red-600 text-sm sm:text-base inline-block border-b-2  font-sans font-normal border-red-600" >
             Le plan du gouvernement pour réveiller la natalité
           </h3>
           <h1 className="text-black font-extrabold text-2xl sm:text-3xl md:text-4xl mt-2" style={{  fontFamily:
                       "'Proxima Nova Condensed', Calibri, 'Arial Narrow', 'Roboto Condensed', 'Trebuchet MS', Tahoma, sans-serif",}}>
             Macron lance un avis à la copulation !
           </h1>
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
           <div className="order-1 md:order-2 md:col-span-6">
-            <Headline title="Latest News"/>
-            <ArticlePreview data={data[0]} />
+            <Headline title="BREAKING NOW" />
+            <ArticleFirst data={data[0]} />
           </div>
           <div className="order-2 md:order-1 md:col-span-3 md:py-4">
             <ArticleLeftCard />
@@ -82,16 +82,16 @@ const HeroSection: React.FC<Props> = ({ data }) => {
 
         {/* 4th section */}
         <div className="mx-auto flex flex-col md:flex-row mt-8 border-gray-200 items-stretch mb-8">
-  <div className="md:border-r md:pr-6 border-gray-200 flex-1">
-    <GazaArticleCard data={data[6]} />
-  </div>
-  <div className="md:border-r md:px-6 border-gray-200 flex-1">
-    <GazaArticleCard data={data[7]} />
-  </div>
-  <div className="md:pl-6 flex-1">
-    <GazaArticleCard data={data[8]} />
-  </div>
-</div>
+          <div className="md:border-r md:pr-6 border-gray-200 flex-1">
+            <GazaArticleCard data={data[6]} />
+          </div>
+          <div className="md:border-r md:px-6 border-gray-200 flex-1">
+            <GazaArticleCard data={data[7]} />
+          </div>
+          <div className="md:pl-6 flex-1">
+            <GazaArticleCard data={data[8]} />
+          </div>
+        </div>
 
         {/* last section */}
         <div className="grid grid-cols-1 md:grid-cols-12 mt-10">

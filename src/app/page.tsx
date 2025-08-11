@@ -29,7 +29,7 @@ export default function Home() {
       <div className="hidden lg:block">
         <Navbar />
       </div>
-      <NewsHighlightRow data={[businessData[0], sportsData[0], politicsData[0]]} />
+      <NewsHighlightRow data={[businessData[0], sportsData[0], politicsData[0], scienceData[0]]} />
       <div className="px-3 sm:px-3 lg:px-5">
 
         <HeroSection data={[politicsData[5], sportsData[7], scienceData[1], healthData[2], entertainmentData[0], educationData[0], businessData[2], politicsData[3], healthData[8], educationData[3], entertainmentData[1], educationData[1], scienceData[1]]} />
@@ -47,6 +47,7 @@ export default function Home() {
         <FillonSection data={[technologyData[3], technologyData[4], technologyData[5], technologyData[6]]} />
 
         <FullCard />
+
         <DucanardSection data={[technologyData[1], technologyData[2], technologyData[3], technologyData[4], technologyData[5], technologyData[6]]} />
 
         <SubscribeCanard data={healthData[3]} />

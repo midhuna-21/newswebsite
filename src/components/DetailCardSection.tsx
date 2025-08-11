@@ -38,7 +38,6 @@ const DetailCardSection: React.FC<Props> = ({ data }) => {
         return () => container.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Scroll to a specific page
     const scrollToPage = (pageIndex: number) => {
         if (scrollRef.current) {
             const scrollContainer = scrollRef.current;
@@ -47,13 +46,11 @@ const DetailCardSection: React.FC<Props> = ({ data }) => {
         }
     };
 
-    // Items per page for pagination
     const itemsPerPage = 4;
     const totalPages = Math.ceil(data.length / itemsPerPage);
 
     return (
         <>
-            {/* Scroll Container with spacing */}
             <div className="mt-12 mb-6">
                 <div
                     ref={scrollRef}
@@ -67,8 +64,8 @@ const DetailCardSection: React.FC<Props> = ({ data }) => {
                             key={`${item.slug}-${index}`}
                             className="flex-shrink-0 snap-start"
                             style={{ 
-                                width: 'calc(25% - 18px)', // 4 items per row with gap
-                                minWidth: '280px' // minimum width for smaller screens
+                                width: 'calc(25% - 18px)', 
+                                minWidth: '280px' 
                             }}
                         >
                             <DetailCard data={item} />

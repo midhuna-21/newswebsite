@@ -20,12 +20,10 @@ const AfriqueAndEspion: React.FC<Props> = ({ data }) => {
   return (
     <div className="w-full bg-white py-8 mt-26">
       <div className="flex flex-col md:flex-row gap-4 px-4">
-        {/* First card */}
         <div className="w-full md:w-1/2">
           <SignatairesArticleCard data={data[0]} />
         </div>
 
-        {/* Second card */}
         <div className="w-full md:w-1/2">
           <EditoEspion data={data[1]} />
         </div>

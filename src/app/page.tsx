@@ -30,6 +30,7 @@ export default function Home() {
         <Navbar />
       </div>
       <NewsHighlightRow data={[businessData[0], sportsData[0], politicsData[0], scienceData[0]]} />
+      
       <div className="px-3 sm:px-3 lg:px-5">
 
         <HeroSection data={[politicsData[5], sportsData[7], scienceData[1], healthData[2], entertainmentData[0], educationData[0], businessData[2], politicsData[3], healthData[8], educationData[3], entertainmentData[1], educationData[1], scienceData[1]]} />

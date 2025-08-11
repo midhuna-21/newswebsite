@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { BiCalendar } from 'react-icons/bi';
 
 interface NewsData {
   category: string;
@@ -19,12 +20,29 @@ interface Props {
 const ArticlePreview: React.FC<Props> = ({ data }) => {
   return (
     <div className="bg-white border-gray-200">
-      <div className="flex items-center mb-2">
-        <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
-          {data.category}
-        </span>
-        <span className="ml-2 text-red-600">•</span>
-      </div>
+   <div className="flex mb-1 space-x-4">
+  {/* Category Section */}
+  <div className="flex items-center">
+    <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+      {data.category}
+    </span>
+    <span className="ml-2 text-red-600">•</span>
+  </div>
+  
+  {/* Date Section */}
+  <div className="flex items-center space-x-1">
+    <BiCalendar 
+      size={12} 
+      className="text-gray-500"
+    />
+    <span className="font-custom text-red-600 font-medium text-xs">
+      Published on
+    </span>
+    <span className="font-custom text-gray-600 text-xs">
+      {data.date}
+    </span>
+  </div>
+</div>
 
       {/* Mobile and Tablet */}
       <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
@@ -72,12 +90,12 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
           </p>
         </div>
 
-      <p
-                    className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
-                    style={{ fontWeight: 400 }}
-                >
-                    {data.shortdescription}
-                </p>
+        <p
+          className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
+          style={{ fontWeight: 400 }}
+        >
+          {data.shortdescription}
+        </p>
 
 
       </Link>

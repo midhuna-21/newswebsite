@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { BiCalendar } from 'react-icons/bi';
 
 interface NewsData {
   category: string;
@@ -49,14 +50,25 @@ const NewsHighlightRow: React.FC<Props> = ({ data }) => {
 
                 <div className="flex flex-col flex-1">
                   <p
-                    className="text-lg text-red-600 leading-tight font-custom uppercase"
+                    className="text-sm text-red-600 leading-tight font-custom uppercase"
                     style={{ fontWeight: 400 }}
                   >
                     {item.category}
                   </p>
-                  <p className="text-lg text-black font-custom leading-tight">{item.title}</p>
+                  <p className="text-sm text-black font-custom leading-tight">{item.title}</p>
+                  <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center' }}>
+                    <BiCalendar
+                      size={10}
+                      style={{ marginRight: '4px', color: '#999' }}
+                    />
+                    <span className="font-custom" style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
+                      Published on
+                    </span>
+                    <span className="font-custom" style={{ color: '#4d5459ff', marginLeft: '4px', fontSize: '8px' }}>
+                      {item.date}
+                    </span>
+                  </div>
                 </div>
-
               </div>
             </Link>
           ))}

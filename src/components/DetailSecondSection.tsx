@@ -21,7 +21,7 @@
       <div className="mt-16">
         <Headline title="READ MORE"/>
       </div>
-    <div className="mx-auto flex flex-col md:flex-row mt-8 border-gray-200 items-stretch">
+    <div className="mx-auto flex flex-col md:flex-row mt-8 border-gray-200 items-stretch gap-6 md:gap-0">
   <div className="md:border-r md:pr-6 border-gray-200 flex-1">
     <GazaArticleCard data={data[0]} />
   </div>

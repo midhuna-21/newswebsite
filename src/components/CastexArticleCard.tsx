@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { BiCalendar } from 'react-icons/bi';
 
 interface NewsData {
   category: string;
@@ -20,11 +21,28 @@ const CastexArticleCard: React.FC<Props> = ({ data }) => {
     <div>
       <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
 
-        <div className="text-xs sm:text-sm mb-2">
-          <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
-            {data.category}
-          </span>
-          <span className="text-red-600"> • </span>
+         <div className="flex mb-1 space-x-4">
+          {/* Category Section */}
+          <div className="flex items-center">
+            <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+              {data.category}
+            </span>
+            <span className="ml-2 text-red-600">•</span>
+          </div>
+          
+          {/* Date Section */}
+          <div className="flex items-center space-x-1">
+            <BiCalendar 
+              size={12} 
+              className="text-gray-500"
+            />
+            <span className="font-custom text-red-600 font-medium text-xs">
+              Published on
+            </span>
+            <span className="font-custom text-gray-600 text-xs">
+              {data.date}
+            </span>
+          </div>
         </div>
         <p
           className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"

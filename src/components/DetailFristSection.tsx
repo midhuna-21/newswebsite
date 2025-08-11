@@ -83,7 +83,7 @@ const DetailFirstSection: React.FC<Props> = ({ data }) => {
         </div>
 
         {/* Lead paragraph / Short description */}
-        <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed font-light italic border-l-4 border-red-500 pl-6 py-2 bg-gray-50">
+        <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed font-light p-4 italic border-l-4 border-red-500 pl-6 py-2 bg-gray-50">
           {data.shortdescription}
         </p>
       </header>

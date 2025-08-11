@@ -45,11 +45,12 @@ const DetailFirstSection: React.FC<Props> = ({ data }) => {
       ref={sectionRef}
       className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative flex"
     >
-      <div className="w-16 mr-6">
-        <div className="sticky top-24">
-          <SocialSidebar sectionRef={sectionRef} />
-        </div>
-      </div>
+    <div className="hidden lg:w-16 lg:mr-6 lg:block">
+  <div className="sticky top-24">
+    <SocialSidebar sectionRef={sectionRef} />
+  </div>
+</div>
+
       <div className="flex-1">
 
         <div className="mb-4">

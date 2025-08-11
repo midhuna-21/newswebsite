@@ -53,8 +53,8 @@ export async function generateStaticParams() {
   );
 }
 
-export async function generateMetadata({ params }: { params: { category: string; slug: string } }): Promise<Metadata> {
-  const { category, slug } = params;
+export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string }> }): Promise<Metadata> {
+  const { category, slug } = await params;
   const articles = allData[category] || [];
   const article = articles.find((a) => a.slug === slug);
 
@@ -94,8 +94,8 @@ export async function generateMetadata({ params }: { params: { category: string;
   };
 }
 
-export default async function DetailPage({ params }: { params: { category: string; slug: string } }) {
-  const { category, slug } = params;
+export default async function DetailPage({ params }: { params: Promise<{ category: string; slug: string }> }) {
+  const { category, slug } = await params;
   const data = allData[category?.toLowerCase()];
   if (!data) return notFound();
 

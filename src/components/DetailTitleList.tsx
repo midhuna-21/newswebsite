@@ -20,9 +20,9 @@ const DetailTitleList: React.FC<Props> = ({ data }) => {
   if (data.length === 0) return null;
 
   return (
-    <div> 
-     <span className="text-black text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
-        {data[0].category} 
+    <div>
+      <span className="text-black text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+        {data[0].category}
       </span>
       <div className="w-full max-w-md mx-auto border-2 border-red-600 p-5">
 
@@ -32,15 +32,12 @@ const DetailTitleList: React.FC<Props> = ({ data }) => {
               key={index}
               className="py-2 hover:underline transition-colors duration-200"
             >
-        <Link href={`/${item.category}/${item.slug}`} title={`${item.slug}`}
-            
-                  className="text-decoration-none hover:underline flex items-center justify-between text-base sm:text-sm md:text-sm lg:text-lg font-custom"
+              <Link href={`/${item.category}/${item.slug}`} title={`${item.slug}`}
+
+                className="text-decoration-none hover:underline flex items-center justify-between text-base sm:text-sm md:text-sm lg:text-lg font-custom"
                 style={{ fontWeight: 400 }}>
-                
-                 
-                  {item.title}
-                
-          </Link>
+                {item.title}
+              </Link>
             </li>
           ))}
         </ul>

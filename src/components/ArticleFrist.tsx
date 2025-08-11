@@ -30,6 +30,7 @@ const ArticleFirst: React.FC<Props> = ({ data }) => {
               </div>
               
               {/* Date Section */}
+            </div>
               <div className="flex items-center space-x-1">
                 <BiCalendar 
                   size={12} 
@@ -42,7 +43,6 @@ const ArticleFirst: React.FC<Props> = ({ data }) => {
                   {data.date}
                 </span>
               </div>
-            </div>
         
             {/* Mobile + Tablet Layout  */}
             <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>

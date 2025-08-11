@@ -30,6 +30,7 @@ const CastexArticleCard: React.FC<Props> = ({ data }) => {
             <span className="ml-2 text-red-600">•</span>
           </div>
           
+        </div>
           {/* Date Section */}
           <div className="flex items-center space-x-1">
             <BiCalendar 
@@ -43,7 +44,6 @@ const CastexArticleCard: React.FC<Props> = ({ data }) => {
               {data.date}
             </span>
           </div>
-        </div>
         <p
           className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
           style={{ fontWeight: 900 }}

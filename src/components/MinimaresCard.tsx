@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { BiCalendar } from 'react-icons/bi';
 
 interface NewsData {
   category: string;
@@ -29,7 +30,19 @@ const MinimaresCard: React.FC<Props> = ({ data }) => {
         </p>
 
         <div className="mt-2">
-          <span className="inline-block w-2 h-2 bg-red-600" />
+           {/* Date Section */}
+              <div className="flex items-center">
+                <BiCalendar 
+                  size={12} 
+                  className="text-gray-500"
+                />
+                <span className="font-custom text-red-600 font-medium text-xs">
+                  Published on
+                </span>
+                <span className="font-custom text-gray-600 text-xs">
+                  {data.date}
+                </span>
+              </div>
         </div>
       </Link>
     </div>

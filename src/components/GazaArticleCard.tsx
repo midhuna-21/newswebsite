@@ -45,6 +45,7 @@ const GazaArticleCard: React.FC<Props> = ({ data }) => {
     <span className="ml-2 text-red-600">•</span>
   </div>
   
+</div>
   {/* Date Section */}
   <div className="flex items-center">
     <BiCalendar 
@@ -58,7 +59,6 @@ const GazaArticleCard: React.FC<Props> = ({ data }) => {
       {data.date}
     </span>
   </div>
-</div>
         <p
           className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-1 font-custom"
           style={{ fontWeight: 900 }}

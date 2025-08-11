@@ -29,6 +29,7 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
     <span className="ml-2 text-red-600">•</span>
   </div>
   
+</div>
   {/* Date Section */}
   <div className="flex items-center space-x-1">
     <BiCalendar 
@@ -42,7 +43,6 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
       {data.date}
     </span>
   </div>
-</div>
 
       {/* Mobile and Tablet */}
       <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>

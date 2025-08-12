@@ -27,11 +27,11 @@ const TrumpUltimatumSection: React.FC<Props> = ({ data }) => {
     const updatePagesCount = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setPagesCount(data.length); // 1 per page
+        setPagesCount(data.length);
       } else if (width < 1024) {
-        setPagesCount(Math.ceil(data.length / 3)); // 3 per page
+        setPagesCount(Math.ceil(data.length / 3)); 
       } else {
-        setPagesCount(0); // No dots on large screens
+        setPagesCount(0); 
       }
     };
 
@@ -60,7 +60,6 @@ const TrumpUltimatumSection: React.FC<Props> = ({ data }) => {
     <section className="w-full bg-white mt-24">
       <Headline title='HEALTH'/>
 
-      {/* Scrollable view for mobile/tablet */}
       <div
         ref={scrollRef}
         className="flex overflow-x-auto scroll-smooth scrollbar-hide gap-6 mt-5 px-4 py-2 mb-4 lg:hidden"
@@ -75,14 +74,12 @@ const TrumpUltimatumSection: React.FC<Props> = ({ data }) => {
         ))}
       </div>
 
-      {/* Grid view for large screens */}
       <div className="hidden lg:grid grid-cols-4 gap-6 mt-5 px-4">
         {data.slice(0, 4).map((item, index) => (
           <TrumpUltimatumCard key={index} data={item} />
         ))}
       </div>
 
-      {/* Pagination dots for mobile/tablet */}
       {pagesCount > 0 && (
         <div className="flex justify-center mt-4 space-x-2 lg:hidden">
           {Array.from({ length: pagesCount }).map((_, index) => (

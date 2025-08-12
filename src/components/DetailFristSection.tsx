@@ -45,14 +45,12 @@ const DetailFirstSection: React.FC<Props> = ({ data }) => {
       ref={sectionRef}
       className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative flex"
     >
-    <div className="hidden lg:w-16 lg:mr-6 lg:block">
-  <div className="sticky top-24">
-    <SocialSidebar sectionRef={sectionRef} />
-  </div>
-</div>
-
+      <div className="hidden lg:w-16 lg:mr-6 lg:block">
+        <div className="sticky top-24">
+          <SocialSidebar sectionRef={sectionRef} />
+        </div>
+      </div>
       <div className="flex-1">
-
         <div className="mb-4">
           <div className="flex items-center space-x-2 mb-2">
             <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
@@ -71,7 +69,14 @@ const DetailFirstSection: React.FC<Props> = ({ data }) => {
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              {data.date}
+              <div className="flex items-center space-x-1">
+                <span className="font-custom text-red-600 font-medium text-xs">
+                  Published on
+                </span>
+                <span className="font-custom text-gray-600 text-xs">
+                  {data.date}
+                </span>
+              </div>
             </time>
             <span className="mx-3">•</span>
           </div>
@@ -79,7 +84,6 @@ const DetailFirstSection: React.FC<Props> = ({ data }) => {
             {data.shortdescription}
           </p>
         </header>
-
         <figure className="mb-10">
           <div className="relative aspect-[16/9] w-full overflow-hidden shadow-xl">
             <Image

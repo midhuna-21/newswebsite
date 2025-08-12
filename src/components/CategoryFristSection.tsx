@@ -22,7 +22,7 @@ const CategoryFirstSection: React.FC<Props> = ({ data }) => {
                 <div className="md:max-w-7xl mx-auto">
                     <div className="flex flex-col space-y-1">
                         <div className="flex items-center space-x-2">
-                            <h1 className=" text-2xl md:text-6xl font-custom leading-none uppercase" style={{fontWeight:900}}>
+                            <h1 className=" text-2xl md:text-6xl font-custom leading-none uppercase" style={{ fontWeight: 900 }}>
                                 {data.category}
                             </h1>
                         </div>
@@ -30,13 +30,21 @@ const CategoryFirstSection: React.FC<Props> = ({ data }) => {
                             {data.title}
                         </p>
                     </div>
-                    <div className="mt-6 space-y-6 leading-relaxed">
+                    <div className="mt-2 leading-relaxed">
                         <p
-                    className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
-                    style={{ fontWeight: 400 }}
-                >
+                            className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
+                            style={{ fontWeight: 400 }}
+                        >
                             {data.shortdescription}
                         </p>
+                        <div className="flex items-center space-x-1">
+                            <span className="font-custom text-red-600 font-medium text-xs">
+                                Published on
+                            </span>
+                            <span className="font-custom text-gray-600 text-xs">
+                                {data.date}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </Link>

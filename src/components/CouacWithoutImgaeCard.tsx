@@ -3,49 +3,50 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface NewsData {
-  slug:string;
-  title:string;
-  category:string;
-  shortdescription:string;
-  description:string;
-  image:string;
-  date:string;
+  slug: string;
+  title: string;
+  category: string;
+  shortdescription: string;
+  description: string;
+  image: string;
+  date: string;
 }
 interface Props {
-  data:NewsData;
+  data: NewsData;
 }
 
-const CouacWithoutImgaeCard:React.FC<Props>=({data}) => {
+const CouacWithoutImgaeCard: React.FC<Props> = ({ data }) => {
   return (
     <div className="w-full max-w-md mx-auto bg-white">
-        <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
-
-      <div className="flex items-center gap-3 mb-2">
-      
-        <div>
-        <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
-            {data.category}
-          </span>
+      <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
+        <div className="flex items-center gap-3 mb-2">
+          <div className="flex flex-col">
+            <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+              {data.category}
+            </span>
+          </div>
         </div>
-      </div>
-
-      <hr className="my-2 border-black/30" />
-
-    
-
-      {/* Article Title & Summary */}
-      <div>
-     <p
-          className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
-          style={{ fontWeight: 900 }}
-        >   {data.title}
-        </p>
-       <p
-                    className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
-                    style={{ fontWeight: 400 }}
-                > {data.shortdescription}
-      </p>
-      </div>
+        <hr className="my-2 border-black/30" />
+        <div>
+          <p
+            className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
+            style={{ fontWeight: 900 }}
+          >   {data.title}
+          </p>
+          <div className="flex items-center space-x-1">
+            <span className="font-custom text-red-600 font-medium text-xs">
+              Published on
+            </span>
+            <span className="font-custom text-gray-600 text-xs">
+              {data.date}
+            </span>
+          </div>
+          <p
+            className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
+            style={{ fontWeight: 400 }}
+          > {data.shortdescription}
+          </p>
+        </div>
       </Link>
     </div>
   );

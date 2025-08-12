@@ -32,10 +32,7 @@ const MinimaresCard: React.FC<Props> = ({ data }) => {
         <div className="mt-2">
            {/* Date Section */}
               <div className="flex items-center">
-                <BiCalendar 
-                  size={12} 
-                  className="text-gray-500"
-                />
+              
                 <span className="font-custom text-red-600 font-medium text-xs">
                   Published on
                 </span>

@@ -52,10 +52,8 @@ const HeroSection: React.FC<Props> = ({ data }) => {
         </div>
       </div>
 
+      {/* second section */}
       <div className='p-4'>
-
-
-        {/* second section */}
         <div className="flex flex-col md:flex-row gap-6">
           <div className="border-b border-gray-300 pb-4 md:border-b-0 md:pb-0">
             <ArticlePreview data={data[1]} />
@@ -65,11 +63,10 @@ const HeroSection: React.FC<Props> = ({ data }) => {
 
 
         {/* 3rd section */}
-        <div className="grid grid-cols-1 md:grid-cols-12 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 mt-10 md:gap-0 gap-4">
           <div className="md:col-span-6 w-full md:pr-4 md:border-r md:border-gray-300">
             <ArticlePreview data={data[3]} />
           </div>
-
           <div className="md:col-span-3 w-full md:p-4 md:border-r md:border-gray-300 pb-4 border-b border-gray-300 md:border-b-0 md:pb-0">
             <CastexArticleCard data={data[4]} />
           </div>
@@ -81,7 +78,7 @@ const HeroSection: React.FC<Props> = ({ data }) => {
         </div>
 
         {/* 4th section */}
-      <div className="mx-auto flex flex-col md:flex-row mt-8 border-gray-200 items-stretch mb-8 gap-6 md:gap-0">
+        <div className="mx-auto flex flex-col md:flex-row mt-8 border-gray-200 items-stretch mb-8 gap-6 md:gap-0 ">
           <div className="md:border-r md:pr-6 border-gray-200 flex-1">
             <GazaArticleCard data={data[6]} />
           </div>
@@ -94,7 +91,7 @@ const HeroSection: React.FC<Props> = ({ data }) => {
         </div>
 
         {/* last section */}
-        <div className="grid grid-cols-1 md:grid-cols-12 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 mt-10 gap-4 md:gap-0">
           <div className="md:col-span-6 w-full md:pr-4 md:border-r md:border-gray-300">
             <ArticlePreview data={data[9]} />
           </div>
@@ -106,10 +103,8 @@ const HeroSection: React.FC<Props> = ({ data }) => {
           <div className="md:col-span-3 w-full md:p-4 mt-4 md:mt-0">
             <CastexArticleCard data={data[11]} />
           </div>
-
         </div>
       </div>
-
     </>
 
   );

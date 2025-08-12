@@ -57,10 +57,10 @@ const NewsHighlightRow: React.FC<Props> = ({ data }) => {
                   </p>
                   <p className="text-sm text-black font-custom leading-tight">{item.title}</p>
                   <div style={{ fontSize: '10px', marginTop: '10px', display: 'flex', alignItems: 'center' }}>
-                    <BiCalendar
+                    {/* <BiCalendar
                       size={10}
                       style={{ marginRight: '4px', color: '#999' }}
-                    />
+                    /> */}
                     <span className="font-custom" style={{ color: '#c0392b', fontWeight: 500, fontSize: '8px' }}>
                       Published on
                     </span>

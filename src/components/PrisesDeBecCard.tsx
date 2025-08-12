@@ -20,18 +20,15 @@ const PrisesDeBecCard: React.FC<Props> = ({ data }) => {
   return (
     <div className="w-full mx-auto p-3 sm:p-4 border-2 border-gray-100 bg-white">
       <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
-
         <div className="flex flex-col md:flex-row gap-3 sm:gap-4">
-          {/* Text Section */}
           <div className="flex-1">
-            {/* Category */}
-            <div className="flex items-start gap-2 mb-1 border-b pb-2">
+            <div className="flex flex-col mb-1 border-b pb-2">
               <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
                 {data.category}
               </span>
             </div>
 
-            {/* Mobile/Tablet: Image on right, text on left */}
+            {/* Mobile/Tablet */}
             <div className="md:hidden mt-2">
               <div className="flex gap-2 items-start">
                 <div className="flex-1">
@@ -40,6 +37,14 @@ const PrisesDeBecCard: React.FC<Props> = ({ data }) => {
                     style={{ fontWeight: 900 }}
                   >  {data.title}
                   </p>
+                   <div className="flex items-center space-x-1">
+                <span className="font-custom text-red-600 font-medium text-xs">
+                  Published on
+                </span>
+                <span className="font-custom text-gray-600 text-xs">
+                  {data.date}
+                </span>
+              </div>
                   <p
                     className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
                     style={{ fontWeight: 400 }}
@@ -59,13 +64,20 @@ const PrisesDeBecCard: React.FC<Props> = ({ data }) => {
             </div>
 
             {/* Desktop: Title and short description */}
-
             <div className="hidden md:block">
               <p
                 className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
                 style={{ fontWeight: 900 }}
               >  {data.title}
               </p>
+               <div className="flex items-center space-x-1">
+                <span className="font-custom text-red-600 font-medium text-xs">
+                  Published on
+                </span>
+                <span className="font-custom text-gray-600 text-xs">
+                  {data.date}
+                </span>
+              </div>
               <p
                 className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
                 style={{ fontWeight: 400 }}
@@ -73,7 +85,6 @@ const PrisesDeBecCard: React.FC<Props> = ({ data }) => {
               </p>
             </div>
           </div>
-
           {/* Desktop */}
           <div className="hidden md:flex w-full md:w-36 lg:w-44 justify-end">
             <Image
@@ -84,11 +95,10 @@ const PrisesDeBecCard: React.FC<Props> = ({ data }) => {
               className="w-auto max-h-[200px] object-contain"
             />
           </div>
+
         </div>
       </Link>
-
       <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
-
         <p className="w-full text-base sm:text-lg md:text-lg lg:text-xl text-black font-medium border-t border-gray-300 pt-2 sm:pt-3 line-clamp-3 font-custom" style={{ fontWeight: 900 }}>
           {data.description}
         </p>

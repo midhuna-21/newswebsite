@@ -43,6 +43,14 @@ const DetailCard: React.FC<Props> = ({ data }) => {
           {data.shortdescription}
         </h2>
       </Link>
+       <div className="flex items-center space-x-1">
+                <span className="font-custom text-red-600 font-medium text-xs">
+                  Published on
+                </span>
+                <span className="font-custom text-gray-600 text-xs">
+                  {data.date}
+                </span>
+              </div>
     </div>
   );
 };

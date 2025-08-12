@@ -26,6 +26,14 @@ const CategoryCard: React.FC<Props> = ({ data }) => {
           style={{ fontWeight: 900 }}
         >   {data.title}
         </p>
+         <div className="flex items-center space-x-1">
+                <span className="font-custom text-red-600 font-medium text-xs">
+                  Published on
+                </span>
+                <span className="font-custom text-gray-600 text-xs">
+                  {data.date}
+                </span>
+              </div>
 
         <p
           className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
@@ -34,8 +42,7 @@ const CategoryCard: React.FC<Props> = ({ data }) => {
           {data.shortdescription}
         </p>
       </Link>
-      <p className="text-xs text-gray-500">Published On {data.date}</p>
-
+     
     </div>
   )
 }

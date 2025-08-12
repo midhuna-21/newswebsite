@@ -31,7 +31,6 @@ const FillonCard: React.FC<Props> = ({ data }) => {
             />
           </div>
         </div>
-
         <div className="flex items-center gap-2 mt-3 text-white text-sm font-semibold">
           <div className="w-12 h-6 bg-red-600 rounded-full flex items-center justify-center">
             <FaPlay className="text-xs" />
@@ -39,6 +38,7 @@ const FillonCard: React.FC<Props> = ({ data }) => {
           <span className="text-base sm:text-xs md:text-xs lg:text-sm  leading-snug text-white uppercase line-clamp-5 font-custom ">{data.title}</span>
         </div>
       </Link>
+      
     </div>
   );
 };

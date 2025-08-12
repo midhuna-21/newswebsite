@@ -20,30 +20,16 @@ interface Props {
 const ArticleFirst: React.FC<Props> = ({ data }) => {
     return (
         <div className="bg-white border-gray-200 mt-3">
-             <div className="flex mb-1 space-x-4">
-              {/* Category Section */}
-              <div className="flex items-center">
-                <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
-                  {data.category}
-                </span>
-                <span className="ml-2 text-red-600">•</span>
-              </div>
-              
-              {/* Date Section */}
+            <div className="flex mb-1 space-x-4">
+                {/* Category Section */}
+                <div className="flex items-center">
+                    <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+                        {data.category}
+                    </span>
+                    <span className="ml-2 text-red-600">•</span>
+                </div>
             </div>
-              <div className="flex items-center space-x-1">
-                <BiCalendar 
-                  size={12} 
-                  className="text-gray-500"
-                />
-                <span className="font-custom text-red-600 font-medium text-xs">
-                  Published on
-                </span>
-                <span className="font-custom text-gray-600 text-xs">
-                  {data.date}
-                </span>
-              </div>
-        
+
             {/* Mobile + Tablet Layout  */}
             <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
                 <div className="md:hidden flex gap-3 sm:gap-4 mb-2">
@@ -55,6 +41,15 @@ const ArticleFirst: React.FC<Props> = ({ data }) => {
                         >
                             {data.title}
                         </p>
+
+                        <div className="flex items-center space-x-1">
+                            <span className="font-custom text-red-600 font-medium text-xs">
+                                Published on
+                            </span>
+                            <span className="font-custom text-gray-600 text-xs">
+                                {data.date}
+                            </span>
+                        </div>
                     </div>
                     <div className="flex-shrink-0 w-24 sm:w-28 md:w-32 relative">
                         <Image
@@ -87,7 +82,14 @@ const ArticleFirst: React.FC<Props> = ({ data }) => {
                     >
                         {data.title}
                     </p>
-
+                    <div className="flex items-center space-x-1">
+                        <span className="font-custom text-red-600 font-medium text-xs">
+                            Published on
+                        </span>
+                        <span className="font-custom text-gray-600 text-xs">
+                            {data.date}
+                        </span>
+                    </div>
                 </div>
                 <p
                     className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"

@@ -20,34 +20,18 @@ interface Props {
 const ArticlePreview: React.FC<Props> = ({ data }) => {
   return (
     <div className="bg-white border-gray-200">
-   <div className="flex mb-1 space-x-4">
-  {/* Category Section */}
-  <div className="flex items-center">
-    <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
-      {data.category}
-    </span>
-    <span className="ml-2 text-red-600">•</span>
-  </div>
-  
-</div>
-  {/* Date Section */}
-  <div className="flex items-center space-x-1">
-    <BiCalendar 
-      size={12} 
-      className="text-gray-500"
-    />
-    <span className="font-custom text-red-600 font-medium text-xs">
-      Published on
-    </span>
-    <span className="font-custom text-gray-600 text-xs">
-      {data.date}
-    </span>
-  </div>
+      <div className="flex mb-1 space-x-4">
+        <div className="flex items-center">
+          <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
+            {data.category}
+          </span>
+          <span className="ml-2 text-red-600">•</span>
+        </div>
+      </div>
 
       {/* Mobile and Tablet */}
       <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
-        <div className="md:hidden flex gap-3 sm:gap-4 mb-2">
-
+        <div className="md:hidden flex gap-3 sm:gap-4">
           <div className="flex-1 min-w-0 pr-2">
             <p
               className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
@@ -71,7 +55,6 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
       {/* Desktop Layout */}
       <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
         <div className="hidden md:block relative">
-
           <div className="float-right w-[240px] lg:w-[280px] h-[168px] lg:h-[196px] ml-4 mb-2">
             <Image
               src={data.image}
@@ -81,7 +64,6 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
               className="w-full h-full object-cover"
             />
           </div>
-
           <p
             className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
             style={{ fontWeight: 900 }}
@@ -89,15 +71,20 @@ const ArticlePreview: React.FC<Props> = ({ data }) => {
             {data.title}
           </p>
         </div>
-
+        <div className="flex items-center space-x-1">
+          <span className="font-custom text-red-600 font-medium text-xs">
+            Published on
+          </span>
+          <span className="font-custom text-gray-600 text-xs">
+            {data.date}
+          </span>
+        </div>
         <p
           className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
           style={{ fontWeight: 400 }}
         >
           {data.shortdescription}
         </p>
-
-
       </Link>
       <div className="hidden md:block clear-both"></div>
     </div>

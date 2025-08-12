@@ -40,12 +40,20 @@ const DossierEspionCard: React.FC<Props> = ({ data }) => {
             <span className="text-red-600 text-base sm:text-lg md:text-lg lg:text-xl capitalize tracking-wide font-custom">
               {data.category}
             </span>
-
-              <p
-          className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
-          style={{ fontWeight: 900 }}
-        >  {data.title}
+          
+            <p
+              className="text-lg lg:text-2xl font-black hover:underline text-gray-900 mb-2 font-custom"
+              style={{ fontWeight: 900 }}
+            >  {data.title}
             </p>
+             <div className="flex items-center space-x-1">
+                <span className="font-custom text-red-600 font-medium text-xs">
+                  Published on
+                </span>
+                <span className="font-custom text-gray-600 text-xs">
+                  {data.date}
+                </span>
+              </div>  
           </div>
           <Image
             src={data.image}
@@ -56,6 +64,7 @@ const DossierEspionCard: React.FC<Props> = ({ data }) => {
           />
         </div>
       </Link>
+
 
       {/* Content Section (Tablet & Desktop) */}
       <Link href={`/${data.category}/${data.slug}`} className='text-decoration-none' title={`${data.slug}`}>
@@ -71,19 +80,24 @@ const DossierEspionCard: React.FC<Props> = ({ data }) => {
               style={{ fontWeight: 900 }}
             >   {data.title}
             </p>
+             <div className="flex items-center space-x-1">
+                <span className="font-custom text-red-600 font-medium text-xs">
+                  Published on
+                </span>
+                <span className="font-custom text-gray-600 text-xs">
+                  {data.date}
+                </span>
+              </div>
           </div>
-          <p className="text-xs sm:text-sm md:text-sm text-gray-500 mb-3">
-            <span className="font-semibold text-gray-700">Published On</span>
-            <span className="mx-1 text-red-500">•</span>
-            <span>{data.date}</span>
-          </p>
           <p
             className="text-base sm:text-lg md:text-lg lg:text-xl text-black text-left font-custom"
             style={{ fontWeight: 400 }}
           >  {data.shortdescription}
           </p>
+        
         </div>
       </Link>
+
     </div>
   );
 };
